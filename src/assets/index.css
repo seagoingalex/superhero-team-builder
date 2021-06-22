@@ -11,3 +11,72 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* Suey wrote below */
+.headerContainer {
+  border: 2px solid green;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.heroCardContainer {
+  height:250px;
+  width: 200px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+
+}
+
+.heroSelectionContainer {
+  border: 2px solid red;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.recruitListContainer {
+  border: 2px solid blue;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.recruitDetailsContainer {
+  border: 2px solid violet;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.teamContainer {
+  border: 2px solid orange;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.teamMemberListContainer {
+  border: 2px solid grey;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.signUpPage {
+  border: 2px solid rgb(60, 47, 175);
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.signInPage {
+  border: 2px solid rgb(105, 31, 13);
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.HomeContainer {
+  border: 2px solid rgb(241, 12, 230);
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+img {
+  width:150px;
+}
