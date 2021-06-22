@@ -7,7 +7,7 @@ function TeamMemberList() {
   return (
     <div className="teamMemberListContainer">
         <h1>this is TeamMemberList</h1>
-        <HeroCard />
+        {/* <HeroCard /> */}
     </div>
   );
 }
