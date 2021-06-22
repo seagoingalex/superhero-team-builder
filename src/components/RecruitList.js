@@ -10,7 +10,8 @@ function RecruitList() {
         <h1>this is RecruitList</h1>
 
         {true ? 
-        <HeroCard />
+        // <HeroCard />
+        null
         :
         <RecruitDetails />
         }
