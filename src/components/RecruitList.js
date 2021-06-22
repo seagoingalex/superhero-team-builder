@@ -6,7 +6,7 @@ import RecruitDetails from "./RecruitDetails"
 function RecruitList() {
 
   return (
-    <div className="recruitListContainer">
+    <div className="flex-container">
         <h1>this is RecruitList</h1>
 
         {true ? 
