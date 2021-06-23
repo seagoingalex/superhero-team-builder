@@ -10,6 +10,7 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router } from 'react-router-dom'
 
 ReactDOM.render(
+  // Maybe let's look into what StrictMode
   <React.StrictMode>
     <Router>
       <App />

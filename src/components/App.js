@@ -6,6 +6,7 @@ import Team from "./Team"
 import SignIn from "./SignIn"
 import SignUp from "./SignUp"
 import RecruitDetails from "./RecruitDetails"
+import NewHeroForm from "./NewHeroForm"
 
 /* Import Route and Switch properties from react-router dom.
  The former allows assigned routing to varying components 
@@ -38,6 +39,7 @@ function App() {
         <Route exact path="/" component={() => <Home heroArray={heroArray} /*heroSelectionArray={heroSelectionArray}*/ /> }  />
         <Route path="/recruit/:id" component={() => <RecruitDetails /*onHeroSelection={handleHeroSelection} *//> }  />
         <Route exact path="/team" component={() => <Team heroArray={heroArray} /> }  />
+        <Route exact path="/addhero" component={() => <NewHeroForm /> }  />
         <Route path="/team/:id" component={() => <RecruitDetails /> }  />
         <Route exact path="/signin" component={() => <SignIn /> }  />
         <Route exact path="/signup" component={() => <SignUp /> }  />
