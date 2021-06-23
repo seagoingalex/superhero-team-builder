@@ -7,17 +7,23 @@ import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 
 function HeroCard( {hero, xsNum, smNum, seletedMemberCard} ) {
+
+  const handleDisselectBtn = (e) => {
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    console.log(hero)
+  }
   
   return (
  
-      <Grid item xs={xsNum} sm={smNum}>
+      <Grid item xs={xsNum} sm={smNum} >
         <Link to={`/recruit/${hero.id}`}> 
           <div className="flex-card" id={seletedMemberCard}>
               <img className="img-in-card" src={hero.image} />
               <div className="hero-info-container">
                 <h3 className="hero-name">{hero.name}</h3>
                 <h4 className="hero-location">Hero Id: {hero.id}</h4>
-                <button className="del-btn"> Delete</button>
+                <button className="del-btn" onClick={(e)=>{handleDisselectBtn(e)}}> Disselect</button>
               </div>
           </div>
         </Link>

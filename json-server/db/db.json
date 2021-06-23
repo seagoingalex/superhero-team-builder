@@ -30,5 +30,19 @@
       "name": "Hawkeye",
       "image": "https://static.wikia.nocookie.net/marveldatabase/images/7/7e/Civil_War_II_Vol_1_3_Hawkeye_Variant_Textless.jpg/revision/latest/scale-to-width-down/660?cb=20160312004004"
     }
+  ],
+  "teamMember": [
+    {
+      "userId": 1,
+      "heroId": 1,
+      "id": 1
+    }
+  ],
+  "teamMemberVersion2": [
+    {
+      "userId": 1,
+      "teamName": "whatever",
+      "team": ["Hawkeye","Black Widow"]
+    }
   ]
 }
