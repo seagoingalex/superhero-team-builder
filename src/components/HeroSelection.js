@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function HeroSelection({ heroSelectionArray, onAddToTeamBtnClick }) {
+function HeroSelection({ heroSelectionArray, onAddToTeamBtnClick, onDisselectBtnClickInSelection }) {
   //material ui thing
   const classes = useStyles();
 
@@ -43,6 +43,7 @@ function HeroSelection({ heroSelectionArray, onAddToTeamBtnClick }) {
                                                 xsNum={xsNum}
                                                 smNum={smNum}
                                                 seletedMemberCard={seletedMemberCard}
+                                                onDisselectBtnClick={onDisselectBtnClickInSelection}
                                                 />)}
           </Grid>
         </div>

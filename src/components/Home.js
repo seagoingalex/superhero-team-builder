@@ -3,7 +3,7 @@ import HeroSelection from "./HeroSelection"
 import RecruitList from "./RecruitList"
 
 
-function Home({ heroArray, heroSelectionArray, onAddToTeamBtnClick }) {
+function Home({ heroArray, heroSelectionArray, onAddToTeamBtnClick, onDisselectBtnClickInSelection }) {
 
 
   return (
@@ -11,6 +11,8 @@ function Home({ heroArray, heroSelectionArray, onAddToTeamBtnClick }) {
 
         <HeroSelection heroSelectionArray={heroSelectionArray}
                        onAddToTeamBtnClick={onAddToTeamBtnClick}
+                       onDisselectBtnClickInSelection={onDisselectBtnClickInSelection}
+                      
                         />
 
         <RecruitList heroArray={heroArray} />

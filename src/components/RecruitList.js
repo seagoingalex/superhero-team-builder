@@ -17,6 +17,9 @@ function RecruitList({ heroArray, onHeroSelection}) {
   //props to pass down for css purpose
   const xsNum = 6;
   const smNum = 2;
+  
+  //props that pass that to hide the button
+  const disselectBtnId = "disselectBtnId"
 
   return (
     <div className="flex-container">
@@ -29,6 +32,7 @@ function RecruitList({ heroArray, onHeroSelection}) {
                                               onHeroSelection={onHeroSelection}
                                               xsNum={xsNum}
                                               smNum={smNum}
+                                              disselectBtnId={disselectBtnId}
                                               />)}
           </Grid>
         </div>
