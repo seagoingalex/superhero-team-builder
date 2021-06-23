@@ -20,6 +20,9 @@ function Header() {
           <NavLink to="/team" >
           <a href="#" className="navlinks">Your Team</a> 
           </NavLink>
+          <NavLink to="/addhero" >
+          <a href="#" className="navlinks">Add a Hero</a> 
+          </NavLink>
         </div>
       </div>
 
