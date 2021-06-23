@@ -19,9 +19,17 @@ function App() {
   const [heroArray, setHeroArray] = useState([])
   // const [heroSelectionArray, setHeroSelectionArray] = useState([])
 
+  const [isLoggedIn, setLogIn] = useState(false)
+  const [currentTeam, setCurrentTeam] = useState(null)
+
   // const handleHeroSelection = (selectedHero) => {
   //   setHeroSelectionArray([...heroSelectionArray, selectedHero])
   // }
+
+  const handleLogIn = (signedInTeam) => {
+    setLogIn(true)
+    setCurrentTeam(signedInTeam)
+  }
 
   useEffect(() => {
     fetch('http://localhost:3000/heroes')
@@ -34,15 +42,15 @@ function App() {
   console.log(heroArray)
   return (
     <div >
-      <Header />
+      <Header isLoggedIn={isLoggedIn} setLogIn={setLogIn} />
       <Switch>
         <Route exact path="/" component={() => <Home heroArray={heroArray} /*heroSelectionArray={heroSelectionArray}*/ /> }  />
         <Route path="/recruit/:id" component={() => <RecruitDetails /*onHeroSelection={handleHeroSelection} *//> }  />
         <Route exact path="/team" component={() => <Team heroArray={heroArray} /> }  />
         <Route exact path="/addhero" component={() => <NewHeroForm /> }  />
         <Route path="/team/:id" component={() => <RecruitDetails /> }  />
-        <Route exact path="/signin" component={() => <SignIn /> }  />
-        <Route exact path="/signup" component={() => <SignUp /> }  />
+        <Route exact path="/signin" component={() => <SignIn onExistingTeamLogIn={handleLogIn} /> }  />
+        <Route exact path="/signup" component={() => <SignUp onNewTeamSubmit={handleLogIn} /> }  />
       </Switch>
 
 

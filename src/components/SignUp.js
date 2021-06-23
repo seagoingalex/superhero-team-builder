@@ -2,7 +2,8 @@
 //npm install @material-ui/core 
 //npm install @material-ui/icons
 
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,8 +17,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
-
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -39,8 +38,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SignUp() {
+function SignUp({ onNewTeamSubmit }) {
   const classes = useStyles();
+  const [newTeam, setNewTeam] = useState("");
+
+  const history = useHistory();
+
+  const handleNewTeam = (e) => {
+    setNewTeam(e.target.value)
+  }
+
+  const newTeamSubmit = (e) => {
+    e.preventDefault();
+    const addedTeam = {
+      teamName: newTeam
+    }
+    fetch('http://localhost:3000/users', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(addedTeam)
+    })
+    onNewTeamSubmit(addedTeam)
+    history.push("/")
+  }
 
   return (
 
@@ -54,7 +77,7 @@ function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={newTeamSubmit} className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -64,11 +87,12 @@ function SignUp() {
                 required
                 fullWidth
                 id="userName"
-                label="User Name"
+                label="Enter the name of your team here"
                 autoFocus
-              />
+                onChange={handleNewTeam}
+              />{newTeam}
             </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -90,7 +114,7 @@ function SignUp() {
                 id="password"
                 autoComplete="current-password"
               />
-            </Grid>
+            </Grid> */}
           </Grid>
           <Button
             type="submit"
@@ -99,12 +123,12 @@ function SignUp() {
             color="primary"
             className={classes.submit}
           >
-            Sign Up
+            Create Team!
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
+              <Link href="/signin" variant="body2">
+                Already have a hero team? Sign in
               </Link>
             </Grid>
           </Grid>
