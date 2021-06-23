@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 //import css from material ui
 import Grid from '@material-ui/core/Grid';
 
-function HeroCard( {hero, xsNum, smNum, seletedMemberCard} ) {
+function HeroCard( {hero, xsNum, smNum, seletedMemberCard, disselectBtnId, onDisselectBtnClick} ) {
 
-  const handleDisselectBtn = (e) => {
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    console.log(hero)
+  //handle the disselectBtn
+  const handleDisselectBtn = () => {
+    //callback fn that declare on App
+    onDisselectBtnClick(hero)
   }
   
   const heroImage = hero.thumbnail.path + "." + hero.thumbnail.extension
@@ -24,11 +24,11 @@ function HeroCard( {hero, xsNum, smNum, seletedMemberCard} ) {
               <img className="img-in-card" src={heroImage} />
               <div className="hero-info-container">
                 <h3 className="hero-name">{hero.name}</h3>
-                <h4 className="hero-location">Hero Id: {hero.id}</h4>
-                <button className="del-btn" onClick={(e)=>{handleDisselectBtn(e)}}> Disselect</button>
+                <h4 className="hero-location">Hero Id: {hero.id}</h4>             
               </div>
           </div>
         </Link>
+        <button className="del-btn" id={disselectBtnId} onClick={()=>{handleDisselectBtn()}}> Disselect</button>
       </Grid>
   );
 }
