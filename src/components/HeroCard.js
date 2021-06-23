@@ -4,9 +4,9 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 function HeroCard( {hero} ) {
-  console.log(hero)
+  
   return (
-    <Link to="/recruit/:id"> 
+    <Link to={`/recruit/${hero.id}`}> 
     <div className="flex-card">
         {/* <h1>HeroCard</h1> */}
         <img src={hero.image} />
