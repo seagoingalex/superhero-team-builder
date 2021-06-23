@@ -1,4 +1,18 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "teamName": "avengers"
+    },
+    {
+      "teamName": "The Defenders",
+      "id": 2
+    },
+    {
+      "teamName": "Guardians of the Galaxy",
+      "id": 3
+    }
+  ],
   "heroes": [
     {
       "id": 1,
