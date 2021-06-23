@@ -17,7 +17,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import Popover from '@material-ui/core/Popover'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,23 +38,31 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  typography: {
+    padding: theme.spacing(2),
+    color: "black"
+    },
 }));
 
 function SignIn({ onExistingTeamLogIn }) {
   const classes = useStyles();
 
   const [enteredTeam, setEnteredTeam] = useState("")
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   const history = useHistory()
 
-  const verifyTeam = (users, addedTeam) => {
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
+  const verifyTeam = (e, users, addedTeam) => {
     let allUsers = users.map(team => team.teamName)
     let currentUser = addedTeam.teamName
     if (allUsers.includes(currentUser)) {
       onExistingTeamLogIn(currentUser)
       history.push("/")
     } else {
-      window.alert("The team does not exist")
+      setAnchorEl(e.target);
     }
   } 
 
@@ -65,7 +73,7 @@ function SignIn({ onExistingTeamLogIn }) {
     }
     fetch('http://localhost:3000/users')
     .then(response => response.json())
-    .then(users => verifyTeam(users, addedTeam))  
+    .then(users => verifyTeam(e, users, addedTeam))  
     // onNewTeamSubmit(addedTeam)
     // history.push("/")
   }
@@ -74,15 +82,19 @@ function SignIn({ onExistingTeamLogIn }) {
     setEnteredTeam(e.target.value)
   }
 
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
+    <>
     <Container component="main" maxWidth="xs" className="signInPage">
-      <h1>this is the sign In page</h1>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h3" className="black-font" >
           Sign in
         </Typography>
         <form onSubmit={newTeamSubmit} className={classes.form} noValidate>
@@ -121,23 +133,40 @@ function SignIn({ onExistingTeamLogIn }) {
             color="primary"
             className={classes.submit}
           >
-            Sign In
+            Go To My Team
           </Button>
           <Grid container>
-            <Grid item xs>
+            {/* <Grid item xs>
               <Link href="#" variant="body2">
                 Forgot password?
               </Link>
-            </Grid>
+            </Grid> */}
             <Grid item>
               <Link href="/signup" variant="body2">
-                {"Don't have an account? Sign Up"}
+                {"Don't have a team? Create one!"}
               </Link>
             </Grid>
           </Grid>
         </form>
       </div>
     </Container>
+    <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <Typography className={classes.typography}>{enteredTeam} does not exist. Please try again.</Typography>
+      </Popover>
+    </>
   );
 }
 

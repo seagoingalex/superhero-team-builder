@@ -17,6 +17,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Popover from '@material-ui/core/Popover'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -36,11 +37,17 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  typography: {
+    padding: theme.spacing(2),
+    color: "black"
+  },
+  
 }));
 
 function SignUp({ onNewTeamSubmit }) {
   const classes = useStyles();
   const [newTeam, setNewTeam] = useState("");
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   const history = useHistory();
 
@@ -49,6 +56,9 @@ function SignUp({ onNewTeamSubmit }) {
   }
 
   const [allUsers, setAllUsers] = useState([])
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
 
   useEffect(() => {
   fetch('http://localhost:3000/users')
@@ -63,7 +73,7 @@ function SignUp({ onNewTeamSubmit }) {
     }
     const userMap = allUsers.map(team => team.teamName)
     if (userMap.includes(addedTeam.teamName)) {
-      window.alert("This name has already been taken")
+      setAnchorEl(e.target);
     } else {
       fetch('http://localhost:3000/users', {
       method: "POST",
@@ -78,16 +88,19 @@ function SignUp({ onNewTeamSubmit }) {
     }
   }
 
-  return (
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
+  return (
+    <>
     <Container component="main" maxWidth="xs" className="signUpPage">
-      <h1>this is the sign Up page </h1>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h3" className="black-font">
           Sign up
         </Typography>
         <form onSubmit={newTeamSubmit} className={classes.form} noValidate>
@@ -100,7 +113,7 @@ function SignUp({ onNewTeamSubmit }) {
                 required
                 fullWidth
                 id="userName"
-                label="Enter the name of your team here"
+                label="Create a name for your team here"
                 autoFocus
                 onChange={handleNewTeam}
               />{newTeam}
@@ -141,13 +154,30 @@ function SignUp({ onNewTeamSubmit }) {
           <Grid container justify="flex-end">
             <Grid item>
               <Link href="/signin" variant="body2">
-                Already have a hero team? Sign in
+                Already have a team? Sign in
               </Link>
             </Grid>
           </Grid>
         </form>
       </div>
     </Container>
+    <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <Typography className={classes.typography}>{newTeam} has already been selected. Please choose another name.</Typography>
+      </Popover>
+    </>
   );
 }
 

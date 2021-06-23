@@ -116,12 +116,26 @@ function App() {
   }
 
   useEffect(() => {
-    fetch('http://localhost:3000/heroes')
-    // fetch('https://gateway.marvel.com:443/v1/public/characters?name=Deadpool&apikey=c8d257c5c8de3331d6de741ea71c6a3a')
+    // fetch('http://localhost:3000/heroes')
+    fetch('https://gateway.marvel.com:443/v1/public/characters?apikey=c8d257c5c8de3331d6de741ea71c6a3a')
     .then(response => response.json())
-    // .then(heroData => console.log(heroData))
-    .then(heroData => setHeroArray(heroData))
+    .then(heroData => {
+      let heroes = heroData.data.results.map(hero => hero)
+      setHeroArray(heroes)
+    })
+    // .then(heroData => setHeroArray(heroData.data.map(results => results.hero)))
+    // .then(heroData => heroData.data.results.map(hero => console.log(hero)))
+    // .then(heroData => setHeroArray(heroData))
   }, [])
+
+  console.log(heroArray)
+  // useEffect(() => {
+  //   fetch('http://localhost:3000/heroes')
+  //   // fetch('https://gateway.marvel.com:443/v1/public/characters?name=Deadpool&apikey=c8d257c5c8de3331d6de741ea71c6a3a')
+  //   .then(response => response.json())
+  //   // .then(heroData => console.log(heroData))
+  //   .then(heroData => setHeroArray(heroData))
+  // }, [])
 
   // console.log(heroArray)
   return (
