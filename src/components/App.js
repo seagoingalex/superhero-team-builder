@@ -16,6 +16,11 @@ import { Route, Switch } from 'react-router-dom'
 
 function App() {
   const [heroArray, setHeroArray] = useState([])
+  // const [heroSelectionArray, setHeroSelectionArray] = useState([])
+
+  // const handleHeroSelection = (selectedHero) => {
+  //   setHeroSelectionArray([...heroSelectionArray, selectedHero])
+  // }
 
   useEffect(() => {
     fetch('http://localhost:3000/heroes')
@@ -30,10 +35,10 @@ function App() {
     <div >
       <Header />
       <Switch>
-        <Route exact path="/" component={() => <Home heroArray={heroArray} /> }  />
-        <Route exact path="/recruit/:id" component={() => <RecruitDetails /> }  />
+        <Route exact path="/" component={() => <Home heroArray={heroArray} /*heroSelectionArray={heroSelectionArray}*/ /> }  />
+        <Route path="/recruit/:id" component={() => <RecruitDetails /*onHeroSelection={handleHeroSelection} *//> }  />
         <Route exact path="/team" component={() => <Team heroArray={heroArray} /> }  />
-        <Route exact path="/team/:id" component={() => <RecruitDetails /> }  />
+        <Route path="/team/:id" component={() => <RecruitDetails /> }  />
         <Route exact path="/signin" component={() => <SignIn /> }  />
         <Route exact path="/signup" component={() => <SignUp /> }  />
       </Switch>
