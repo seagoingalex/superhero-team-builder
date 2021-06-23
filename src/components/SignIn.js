@@ -2,7 +2,8 @@
 //npm install @material-ui/core 
 //npm install @material-ui/icons
 
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom'
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -39,8 +40,39 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SignIn() {
+function SignIn({ onExistingTeamLogIn }) {
   const classes = useStyles();
+
+  const [enteredTeam, setEnteredTeam] = useState("")
+
+  const history = useHistory()
+
+  const verifyTeam = (users, addedTeam) => {
+    let allUsers = users.map(team => team.teamName)
+    let currentUser = addedTeam.teamName
+    if (allUsers.includes(currentUser)) {
+      onExistingTeamLogIn(currentUser)
+      history.push("/")
+    } else {
+      window.alert("The team does not exist")
+    }
+  } 
+
+  const newTeamSubmit = (e) => {
+    e.preventDefault();
+    const addedTeam = {
+      teamName: enteredTeam
+    }
+    fetch('http://localhost:3000/users')
+    .then(response => response.json())
+    .then(users => verifyTeam(users, addedTeam))  
+    // onNewTeamSubmit(addedTeam)
+    // history.push("/")
+  }
+
+  const handleTeamName = (e) => {
+    setEnteredTeam(e.target.value)
+  }
 
   return (
     <Container component="main" maxWidth="xs" className="signInPage">
@@ -53,19 +85,21 @@ function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={newTeamSubmit} className={classes.form} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="Enter your existing team name"
             name="email"
             autoComplete="email"
             autoFocus
+            onChange={handleTeamName}
+            value={enteredTeam}
           />
-          <TextField
+          {/* <TextField
             variant="outlined"
             margin="normal"
             required
@@ -79,7 +113,7 @@ function SignIn() {
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
-          />
+          /> */}
           <Button
             type="submit"
             fullWidth
@@ -96,7 +130,7 @@ function SignIn() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
