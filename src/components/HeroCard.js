@@ -14,12 +14,14 @@ function HeroCard( {hero, xsNum, smNum, seletedMemberCard, disselectBtnId, onDis
     onDisselectBtnClick(hero)
   }
   
+  const heroImage = hero.thumbnail.path + "." + hero.thumbnail.extension
+
   return (
  
       <Grid item xs={xsNum} sm={smNum} >
         <Link to={`/recruit/${hero.id}`}> 
           <div className="flex-card" id={seletedMemberCard}>
-              <img className="img-in-card" src={hero.image} />
+              <img className="img-in-card" src={heroImage} />
               <div className="hero-info-container">
                 <h3 className="hero-name">{hero.name}</h3>
                 <h4 className="hero-location">Hero Id: {hero.id}</h4>             
