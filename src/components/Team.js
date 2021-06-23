@@ -6,11 +6,10 @@ import TeamMemberList from "./TeamMemberList";
 
 function Team({ heroArray }) {
   return (
-    <div className="teamContainer">
-        <h1>This is the Team page</h1>
+    <div className="teamPage">
+      
         <TeamMemberList heroArray={heroArray} />
 
-        {/* <RecruitDetails /> */}
     </div>
   );
 }
