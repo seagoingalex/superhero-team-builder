@@ -1,25 +1,39 @@
 import React from "react";
 
 // react-router-dom Imports
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function Header() {
   return (
-   <nav>
-    <Link to="/">
-    <a href="#">Home</a> |
-    </Link>
-    <Link to="/team">
-    <a href="#">Your Team</a> |
-    </Link>
-    <Link to="/signin">
-    <button>Sign in</button>
-    </Link>
-    <Link to="/signup">
-    <button>Sign up</button>
-    </Link>
-    {/* <a href="#">Battle</a> |
-    <a href="#">Add a Hero</a> */}
+   <nav className="header-container">
+
+      <div className="header-left">
+
+          <NavLink to="/" id="header-logo">
+            <a href="#">SUPERTEAM</a> 
+          </NavLink>
+
+        <div className="navbar-container">
+          <NavLink to="/">
+            <a href="#"  className="navlinks">Home</a> 
+          </NavLink>
+          <NavLink to="/team" >
+          <a href="#" className="navlinks">Your Team</a> 
+          </NavLink>
+        </div>
+      </div>
+
+      <div className="header-right">
+        <Link to="/signin" className="navbar-btn">
+        <button>Sign in</button>
+        </Link>
+        <Link to="/signup" className="navbar-btn">
+        <button>Sign up</button>
+        </Link>
+      </div>
+      {/* <a href="#">Battle</a> |
+      <a href="#">Add a Hero</a> */}
+
    </nav>
   );
 }

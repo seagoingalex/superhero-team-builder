@@ -14,14 +14,33 @@ code {
 
 
 /* Suey wrote below */
+
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Kumbh Sans', sans-serif;
+  scroll-behavior: smooth;
+} */
+
+
 .headerContainer {
   border: 2px solid green;
   padding: 15px;
   margin-bottom: 10px;
+  /* background: #131313;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999; */
 }
 
 .heroCardContainer {
-  height:250px;
+  height: 250px;
   width: 200px;
   border: 2px solid black;
   border-radius: 10px;

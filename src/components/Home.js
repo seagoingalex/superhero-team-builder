@@ -8,7 +8,6 @@ function Home({ heroArray, heroSelectionArray }) {
 
   return (
     <div className="HomeContainer">
-      <h1>this is the Home page</h1>
 
         <HeroSelection heroSelectionArray={heroSelectionArray}  />
 

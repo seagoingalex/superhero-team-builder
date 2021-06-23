@@ -3,18 +3,25 @@ import React from "react";
 // react-router-dom Imports
 import { Link } from 'react-router-dom';
 
-function HeroCard( {hero} ) {
+//import css from material ui
+import Grid from '@material-ui/core/Grid';
+
+function HeroCard( {hero, xsNum, smNum, seletedMemberCard} ) {
   
   return (
-    <Link to={`/recruit/${hero.id}`}> 
-    <div className="flex-card">
-        {/* <h1>HeroCard</h1> */}
-        <img src={hero.image} />
-        <h3 className="hero-name">{hero.name}</h3>
-        <h4 className="hero-location">Hero Id: {hero.id}</h4>
-        <button className="hero-superpower"> Delete</button>
-    </div>
-    </Link>
+ 
+      <Grid item xs={xsNum} sm={smNum}>
+        <Link to={`/recruit/${hero.id}`}> 
+          <div className="flex-card" id={seletedMemberCard}>
+              <img className="img-in-card" src={hero.image} />
+              <div className="hero-info-container">
+                <h3 className="hero-name">{hero.name}</h3>
+                <h4 className="hero-location">Hero Id: {hero.id}</h4>
+                <button className="del-btn"> Delete</button>
+              </div>
+          </div>
+        </Link>
+      </Grid>
   );
 }
 
