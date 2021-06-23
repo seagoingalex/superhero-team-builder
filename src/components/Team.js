@@ -4,11 +4,11 @@ import TeamMemberList from "./TeamMemberList";
 
 
 
-function Team({ heroArray }) {
+function Team({teamArray }) {
   return (
     <div className="teamPage">
       
-        <TeamMemberList heroArray={heroArray} />
+        <TeamMemberList heroArray={teamArray} />
 
     </div>
   );

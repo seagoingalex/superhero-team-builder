@@ -24,7 +24,15 @@ function RecruitDetails({ onHeroSelection }) {
 
     if (!isLoaded) return <h2>Loading...</h2>;
 
+    const enlistClickHandler = (hero) => {
+      //add hero to the heroSelectionArray & make this herocard disappear from RecruitList
+      //callback fn defined on App.js
+      onHeroSelection(hero)
+      //push the page back to the home page 
+      history.push('/')
     
+    }
+
 
   return (
     <div className="recruitDetailsContainer">
@@ -33,7 +41,7 @@ function RecruitDetails({ onHeroSelection }) {
       <h2>{hero.name}</h2>
       <p>All the details of this superhero</p>
       <button onClick={handleBack}> Go Back</button>
-      <button /*onClick={onHeroSelection(hero)}*/> Enlist </button>
+      <button onClick={()=>{enlistClickHandler(hero)}}> Enlist </button>
 
     </div>
   );
