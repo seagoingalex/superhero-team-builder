@@ -19,7 +19,9 @@ function App() {
   const [heroArray, setHeroArray] = useState([])
   const [heroSelectionArray, setHeroSelectionArray] = useState([])
   const [teamArray, setTeamArray] = useState([])
-
+  const [isLoggedIn, setLogIn] = useState(false)
+  const [currentTeam, setCurrentTeam] = useState(null)
+  
   //callback function pass down to RecruitDetail page for the Enlist Btn
   const onHeroSelection = (selectedHero) => {
     //add hero to the heroSelectionArray 
@@ -32,9 +34,28 @@ function App() {
   //callback fn pass down to HeroSelection.js for AddToTeamBtn
   const onAddToTeamBtnClick = (heroSelectionArray) => {
     // console.log(heroSelectionArray)
+    console.log(currentTeam)
+    
 
     //set teamArray 
     setTeamArray([...teamArray, ...heroSelectionArray]);
+
+    heroSelectionArray.map(hero => {
+      fetch("http://localhost:3000/teamMember", {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userId: currentTeam,
+          heroId: hero.id,
+          name: hero.name,
+          image: hero.image
+          })
+      })
+      .catch(error => console.error('Error:', error))
+    })    
+
     //clear out heroSelectionArray 
     setHeroSelectionArray([]);
    
@@ -82,8 +103,7 @@ function App() {
   // console.log('teamArray',teamArray, "heroSelectionArray",heroSelectionArray )
 
 
-  const [isLoggedIn, setLogIn] = useState(false)
-  const [currentTeam, setCurrentTeam] = useState(null)
+
 
   // const handleHeroSelection = (selectedHero) => {
   //   setHeroSelectionArray([...heroSelectionArray, selectedHero])

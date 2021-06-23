@@ -2,7 +2,7 @@
 //npm install @material-ui/core 
 //npm install @material-ui/icons
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -48,12 +48,24 @@ function SignUp({ onNewTeamSubmit }) {
     setNewTeam(e.target.value)
   }
 
+  const [allUsers, setAllUsers] = useState([])
+
+  useEffect(() => {
+  fetch('http://localhost:3000/users')
+  .then(res => res.json())
+  .then(user => setAllUsers(user))
+  }, [])
+
   const newTeamSubmit = (e) => {
     e.preventDefault();
     const addedTeam = {
       teamName: newTeam
     }
-    fetch('http://localhost:3000/users', {
+    const userMap = allUsers.map(team => team.teamName)
+    if (userMap.includes(addedTeam.teamName)) {
+      window.alert("This name has already been taken")
+    } else {
+      fetch('http://localhost:3000/users', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -63,6 +75,7 @@ function SignUp({ onNewTeamSubmit }) {
     })
     onNewTeamSubmit(addedTeam)
     history.push("/")
+    }
   }
 
   return (

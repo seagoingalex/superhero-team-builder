@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "teamName": "avengers"
+      "teamName": "The Avengers"
     },
     {
       "teamName": "The Defenders",
@@ -49,14 +49,26 @@
     {
       "userId": 1,
       "heroId": 1,
-      "id": 1
+      "id": 1,
+      "name": 1,
+      "image": 1
+    },
+    {
+      "userId": "The Avengers",
+      "heroId": 5,
+      "name": "The Incredible Hulk",
+      "image": "https://static.wikia.nocookie.net/marveldatabase/images/d/dc/Immortal_Hulk_20_Unknown_Comic_Books_Exclusive_Virgin_Variant.jpg/revision/latest/scale-to-width-down/656?cb=20190830071143",
+      "id": 2
     }
   ],
   "teamMemberVersion2": [
     {
       "userId": 1,
       "teamName": "whatever",
-      "team": ["Hawkeye","Black Widow"]
+      "team": [
+        "Hawkeye",
+        "Black Widow"
+      ]
     }
   ]
 }
