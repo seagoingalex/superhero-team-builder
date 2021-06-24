@@ -14,10 +14,10 @@ function RecruitDetails({ onHeroSelection }) {
     }
 
     useEffect(() => {
-      fetch(`http://localhost:3000/heroes/${id}`)
+      fetch(`https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=c8d257c5c8de3331d6de741ea71c6a3a`)
         .then((r) => r.json())
         .then((hero) => {
-          setHero(hero);
+          setHero(hero.data.results[0]);
           setIsLoaded(true);
         });
     }, [id]);
@@ -30,16 +30,16 @@ function RecruitDetails({ onHeroSelection }) {
       onHeroSelection(hero)
       //push the page back to the home page 
       history.push('/')
-    
     }
+
+    const heroImage = hero.thumbnail.path + "." + hero.thumbnail.extension
 
 
   return (
     <div className="recruitDetailsContainer">
-      <h1>this is RecruitDetails</h1>
-      <img src={hero.image}/>
+      <img src={heroImage}/>
       <h2>{hero.name}</h2>
-      <p>All the details of this superhero</p>
+      <p>{hero.description}</p>
       <button onClick={handleBack}> Go Back</button>
       <button onClick={()=>{enlistClickHandler(hero)}}> Enlist </button>
 

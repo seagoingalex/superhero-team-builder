@@ -7,6 +7,7 @@ import SignIn from "./SignIn"
 import SignUp from "./SignUp"
 import RecruitDetails from "./RecruitDetails"
 import NewHeroForm from "./NewHeroForm"
+import TeamDetails from "./TeamDetails"
 
 /* Import Route and Switch properties from react-router dom.
  The former allows assigned routing to varying components 
@@ -18,15 +19,30 @@ import { Route, Switch } from 'react-router-dom'
 function App() {
   const [heroArray, setHeroArray] = useState([])
   const [heroSelectionArray, setHeroSelectionArray] = useState([])
-  const [teamArray, setTeamArray] = useState([])
+  // const [teamArray, setTeamArray] = useState([])
   const [isLoggedIn, setLogIn] = useState(false)
   const [currentTeam, setCurrentTeam] = useState(null)
   // const [teamMemberArrayfromDB, setTeamMemberArrayfromDB] = ([])
   
   //callback function pass down to RecruitDetail page for the Enlist Btn
+  let flag = true;
   const onHeroSelection = (selectedHero) => {
+      if (heroSelectionArray.length === 0 ) {
+        setHeroSelectionArray([...heroSelectionArray, selectedHero])
+      } else { heroSelectionArray.map(hero => {
+        // console.log(hero.id, selectedHero.id)
+                if (hero.id ===selectedHero.id) {
+                    flag = false; 
+          }
+    })
+    if (flag){
+      setHeroSelectionArray([...heroSelectionArray, selectedHero])
+    }
+  
+  }
     //add hero to the heroSelectionArray 
-    setHeroSelectionArray([...heroSelectionArray, selectedHero])
+    // if (selectedHero.id)
+    
     //make this herocard disappear from RecruitList
     const heroArrayAfterSelect = heroArray.filter(hero=>hero.id !== selectedHero.id)
     setHeroArray(heroArrayAfterSelect)
@@ -34,12 +50,8 @@ function App() {
 
   //callback fn pass down to HeroSelection.js for AddToTeamBtn
   const onAddToTeamBtnClick = (heroSelectionArray) => {
-    // console.log(heroSelectionArray)
+    console.log(heroSelectionArray)
     
-
-    //set teamArray 
-    setTeamArray([...teamArray, ...heroSelectionArray]);
-
     heroSelectionArray.map(hero => {
       fetch("http://localhost:3000/teamMember", {
         method: 'POST',
@@ -50,7 +62,7 @@ function App() {
           userId: currentTeam,
           heroId: hero.id,
           name: hero.name,
-          image: hero.image
+          image: `${hero.thumbnail.path}.${hero.thumbnail.extension}`
           })
       })
       .catch(error => console.error('Error:', error))
@@ -69,15 +81,7 @@ function App() {
     setHeroArray([...heroArray, disselectedHero])
   }
 
-  const onDisselectBtnClickInTeamPage = (disselectedHero) => {
-    console.log(disselectedHero)
-    //Delete from database 
-    console.log(currentTeam)
-
-
-    //Delete from teamArray
-    setTeamArray(teamArray.filter(teamMember=> teamMember.name !== disselectedHero.name))
-  }
+  
 
 
   const handleLogIn = (signedInTeam) => {
@@ -120,14 +124,11 @@ function App() {
 
                                                      /> }  />
         <Route path="/recruit/:id" component={() => <RecruitDetails onHeroSelection={onHeroSelection} /> }  />
-        <Route exact path="/team" component={() => <Team setTeamArray={setTeamArray} 
-                                                         teamArray={teamArray}
-                                                         onDisselectBtnClickInTeamPage={onDisselectBtnClickInTeamPage}
-                                                         currentTeam={currentTeam}
-        
+        <Route path="/team/:id" component={() => <TeamDetails onHeroSelection={onHeroSelection} /> }  />
+        <Route exact path="/team" component={() => <Team currentTeam={currentTeam}
                                                       /> }  />
         <Route exact path="/addhero" component={() => <NewHeroForm /> }  />
-        <Route path="/team/:id" component={() => <RecruitDetails /> }  />
+        {/* <Route path="/team/:id" component={() => <RecruitDetails /> }  /> */}
         <Route exact path="/signin" component={() => <SignIn onExistingTeamLogIn={handleLogIn} /> }  />
         <Route exact path="/signup" component={() => <SignUp onNewTeamSubmit={handleLogIn} /> }  />
       </Switch>
