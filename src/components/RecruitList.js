@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function RecruitList({ heroArray, onHeroSelection}) {
+function RecruitList({ heroArray, onHeroSelection, heroArrayParse, setHeroArrayParse}) {
   const classes = useStyles();
 
   //props to pass down for css purpose
@@ -21,11 +21,22 @@ function RecruitList({ heroArray, onHeroSelection}) {
   //props that pass that to hide the button
   const disselectBtnId = "disselectBtnId"
 
+  const handleBack = () => {
+    setHeroArrayParse(heroArrayParse - 100)
+  }
+
+  const handleNext = () => {
+    setHeroArrayParse(heroArrayParse + 100)
+  }
 
   return (
     <div className="flex-container">
       
         <div className={classes.root}>
+          {heroArrayParse > 0 ? <button onClick={handleBack}>Back</button> : null}
+          {/* <button onClick={handleBack}>Back</button> */}
+          {heroArrayParse < 1400 ? <button onClick={handleNext}>Next</button> : null}
+          {/* <button onClick={handleNext}>Next</button> */}
           <Grid container spacing={3}>
             {heroArray.map(hero => <HeroCard 
                                               key={hero.id} 
