@@ -32,6 +32,7 @@ function HeroSelection({ heroSelectionArray, onAddToTeamBtnClick, onDisselectBtn
     onAddToTeamBtnClick(heroSelectionArray)
   }
 
+
     return (
     <div className="flex-container">
         <div className={classes.root}>
@@ -40,6 +41,9 @@ function HeroSelection({ heroSelectionArray, onAddToTeamBtnClick, onDisselectBtn
             {heroSelectionArray.map(hero => <HeroCard 
                                                 key={hero.id} 
                                                 hero={hero} 
+                                                heroImage={hero.thumbnail.path + "." + hero.thumbnail.extension}
+                                                heroId={hero.id}
+                                                link={`/recruit/${hero.id}`}
                                                 xsNum={xsNum}
                                                 smNum={smNum}
                                                 seletedMemberCard={seletedMemberCard}

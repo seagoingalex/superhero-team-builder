@@ -21,6 +21,7 @@ function RecruitList({ heroArray, onHeroSelection}) {
   //props that pass that to hide the button
   const disselectBtnId = "disselectBtnId"
 
+
   return (
     <div className="flex-container">
       
@@ -29,10 +30,13 @@ function RecruitList({ heroArray, onHeroSelection}) {
             {heroArray.map(hero => <HeroCard 
                                               key={hero.id} 
                                               hero={hero} 
+                                              heroId={hero.id}
                                               onHeroSelection={onHeroSelection}
                                               xsNum={xsNum}
                                               smNum={smNum}
                                               disselectBtnId={disselectBtnId}
+                                              heroImage={hero.thumbnail.path + "." + hero.thumbnail.extension}
+                                              link={`/recruit/${hero.id}`}
                                               />)}
           </Grid>
         </div>

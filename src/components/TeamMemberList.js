@@ -22,16 +22,18 @@ function TeamMemberList({ heroArray, onDisselectBtnClickInTeamPage }) {
 
   return (
     <div className="flex-container">
-        <h3>this is TeamMemberList</h3>
         <div className={classes.root}>
           <Grid container spacing={3}>
             {heroArray.map(hero => <HeroCard 
                                     key={hero.id} 
                                     hero={hero} 
+                                    heroImage={hero.image}
+                                    heroId={hero.heroId}
                                     xsNum={xsNum}
                                     smNum={smNum}
                                     seletedMemberCard={seletedMemberCard}
                                     onDisselectBtnClick={onDisselectBtnClickInTeamPage}
+                                    link={`team/${hero.id}`}
                                     />)}
           </Grid>
         </div>

@@ -163,8 +163,12 @@ button {
 
 #disselectBtnId {
   display:none;
+}
 
 .black-font {
   color: black
+}
 
+.recruitDetailsContainer {
+  background-color: black;
 }
