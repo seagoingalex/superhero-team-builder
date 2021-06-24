@@ -58,28 +58,15 @@
       "heroId": 1017100,
       "name": "A-Bomb (HAS)",
       "image": "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16.jpg",
-      "id": 2
-    },
-    {
-      "userId": "The Defenders",
-      "heroId": 1009144,
-      "name": "A.I.M.",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/6/20/52602f21f29ec.jpg",
-      "id": 4
+      "id": 8
     },
     {
       "userId": "The Avengers",
       "heroId": 1009146,
       "name": "Abomination (Emil Blonsky)",
       "image": "http://i.annihil.us/u/prod/marvel/i/mg/9/50/4ce18691cbf04.jpg",
-      "id": 5
-    },
-    {
-      "userId": "The Defenders",
-      "heroId": 1011334,
-      "name": "3-D Man",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg",
-      "id": 6
+      "description": "Formerly known as Emil Blonsky, a spy of Soviet Yugoslavian origin working for the KGB, the Abomination gained his powers after receiving a dose of gamma radiation similar to that which transformed Bruce Banner into the incredible Hulk.",
+      "id": 13
     },
     {
       "userId": "Guardians of the Galaxy",

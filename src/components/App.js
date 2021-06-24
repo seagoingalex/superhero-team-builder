@@ -65,7 +65,8 @@ function App() {
           userId: currentTeam,
           heroId: hero.id,
           name: hero.name,
-          image: `${hero.thumbnail.path}.${hero.thumbnail.extension}`
+          image: `${hero.thumbnail.path}.${hero.thumbnail.extension}`,
+          description:hero.description
           })
       })
       .catch(error => console.error('Error:', error))

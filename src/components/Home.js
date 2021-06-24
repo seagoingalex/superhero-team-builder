@@ -8,6 +8,12 @@ function Home({ heroArray, heroSelectionArray, onAddToTeamBtnClick, onDisselectB
 
   return (
     <div className="HomeContainer">
+      {
+        heroSelectionArray.length === 0 ?
+        <h2 className="home-h2">Please start selecting your heros to your team</h2>
+        :
+        
+      
 
         <HeroSelection heroSelectionArray={heroSelectionArray}
                        onAddToTeamBtnClick={onAddToTeamBtnClick}
@@ -15,8 +21,9 @@ function Home({ heroArray, heroSelectionArray, onAddToTeamBtnClick, onDisselectB
                       
                         />
 
-        <RecruitList heroArray={heroArray} heroArrayParse={heroArrayParse} setHeroArrayParse={setHeroArrayParse}/>
+      }
 
+        <RecruitList heroArray={heroArray} heroArrayParse={heroArrayParse} setHeroArrayParse={setHeroArrayParse}/>
 
     </div>
   );
