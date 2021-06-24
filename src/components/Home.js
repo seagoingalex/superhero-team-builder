@@ -10,7 +10,7 @@ function Home({ heroArray, heroSelectionArray, onAddToTeamBtnClick, onDisselectB
     <div className="HomeContainer">
       {
         heroSelectionArray.length === 0 ?
-        <h2 className="home-h2">Please start selecting your heros to your team</h2>
+        <h2 className="home-h2">Please start selecting your heroes to your team</h2>
         :
         
       
