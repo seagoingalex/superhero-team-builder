@@ -94,6 +94,14 @@
       "name": "Abomination (Emil Blonsky)",
       "image": "http://i.annihil.us/u/prod/marvel/i/mg/9/50/4ce18691cbf04.jpg",
       "id": 8
+    },
+    {
+      "name": "Lady Loki",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/A1FytTbVFDL._AC_SX522_.jpg",
+      "description": "The Goddess of Mischief",
+      "userId": "The Avengers",
+      "heroId": "1bd8104-b206-f048-3bcb-fca7ea17632a",
+      "id": 9
     }
   ]
 }
