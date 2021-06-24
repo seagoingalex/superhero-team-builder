@@ -4,7 +4,7 @@ import TeamMemberList from "./TeamMemberList";
 
 
 
-function Team({/*setTeamArray, teamArray, onDisselectBtnClickInTeamPage,*/ currentTeam }) {
+function Team({/*setTeamArray, teamArray, onDisselectBtnClickInTeamPage,*/ currentTeam, isLoggedIn }) {
   console.log(currentTeam)
   const [teamArray, setTeamArray] = useState([])
 
@@ -31,11 +31,16 @@ function Team({/*setTeamArray, teamArray, onDisselectBtnClickInTeamPage,*/ curre
 
   return (
     <div className="teamPage">
-      
+        {isLoggedIn ?
         <TeamMemberList heroArray={teamArray}
                         onDisselectBtnClickInTeamPage={onDisselectBtnClickInTeamPage}
                         />
-
+        :
+        <>
+        <h1>Log in to your team to see your heroes!</h1>
+        <br></br>
+        </>
+        }
     </div>
   );
 }

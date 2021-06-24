@@ -123,9 +123,9 @@ function App() {
                                                      onDisselectBtnClickInSelection={onDisselectBtnClickInSelection}
 
                                                      /> }  />
-        <Route path="/recruit/:id" component={() => <RecruitDetails onHeroSelection={onHeroSelection} /> }  />
+        <Route path="/recruit/:id" component={() => <RecruitDetails isLoggedIn={isLoggedIn} onHeroSelection={onHeroSelection} /> }  />
         <Route path="/team/:id" component={() => <TeamDetails onHeroSelection={onHeroSelection} /> }  />
-        <Route exact path="/team" component={() => <Team currentTeam={currentTeam}
+        <Route exact path="/team" component={() => <Team currentTeam={currentTeam} isLoggedIn={isLoggedIn}
                                                       /> }  />
         <Route exact path="/addhero" component={() => <NewHeroForm /> }  />
         {/* <Route path="/team/:id" component={() => <RecruitDetails /> }  /> */}

@@ -1,9 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams, Link } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles';
+import Popover from '@material-ui/core/Popover';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
-function RecruitDetails({ onHeroSelection }) {
+const useStyles = makeStyles((theme) => ({
+  typography: {
+    padding: theme.spacing(2),
+    color: "black"
+  },
+}));
+
+function RecruitDetails({ onHeroSelection, isLoggedIn }) {
     const [hero, setHero] = useState(null)
     const [isLoaded, setIsLoaded] = useState(false)
+    const classes = useStyles();
+    const [anchorEl, setAnchorEl] = React.useState(null);
 
     const { id } = useParams()
 
@@ -24,26 +37,54 @@ function RecruitDetails({ onHeroSelection }) {
 
     if (!isLoaded) return <h2>Loading...</h2>;
 
-    const enlistClickHandler = (hero) => {
+    const enlistClickHandler = (e, hero) => {
+      if(isLoggedIn) {
       //add hero to the heroSelectionArray & make this herocard disappear from RecruitList
       //callback fn defined on App.js
       onHeroSelection(hero)
       //push the page back to the home page 
-      history.push('/')
+      history.push('/')  
+      } else {
+        setAnchorEl(e.currentTarget)
+      }
     }
+
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+    const modalId = open ? 'simple-popover' : undefined;
 
     const heroImage = hero.thumbnail.path + "." + hero.thumbnail.extension
 
 
   return (
+    <>
     <div className="recruitDetailsContainer">
       <img src={heroImage}/>
       <h2>{hero.name}</h2>
       <p>{hero.description}</p>
       <button onClick={handleBack}> Go Back</button>
-      <button onClick={()=>{enlistClickHandler(hero)}}> Enlist </button>
-
+      <button onClick={(e)=>{enlistClickHandler(e, hero)}}> Enlist </button>
     </div>
+    <Popover
+        id={modalId}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <Typography className={classes.typography}>You must be signed in to add heroes to your team!</Typography>
+      </Popover>
+    </>
   );
 }
 
