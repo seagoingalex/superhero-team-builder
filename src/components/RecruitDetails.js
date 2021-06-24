@@ -37,12 +37,25 @@ function RecruitDetails({ onHeroSelection }) {
 
   return (
     <div className="recruitDetailsContainer">
-      <img src={heroImage}/>
-      <h2>{hero.name}</h2>
-      <p>{hero.description}</p>
-      <button onClick={handleBack}> Go Back</button>
-      <button onClick={()=>{enlistClickHandler(hero)}}> Enlist </button>
+      
+      <div className="detail-left-container">
+        <img className="detail-img" src={heroImage}/>
+       
+        <div className="btngroup">
+          <button className="detail-btn" onClick={handleBack}> Go Back</button>
+          <button className="detail-btn" onClick={()=>{enlistClickHandler(hero)}}> Enlist</button>
+        </div>
+      </div>
 
+      <div className="detail-right-container">
+        <h2 className="detail-name"> {hero.name}</h2>
+        <h3 className="detail-description">Description:</h3>
+        { hero.description ==="" ?
+        <p> Sorry, it doesn't seem like Marvel cares about this super hero enough to give him/her a description 😔 </p>
+        :
+        <p> {hero.description}</p>
+        }
+      </div>
     </div>
   );
 }

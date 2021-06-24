@@ -34,25 +34,28 @@ function HeroSelection({ heroSelectionArray, onAddToTeamBtnClick, onDisselectBtn
 
 
     return (
-    <div className="flex-container">
-        <div className={classes.root}>
-          <Grid container spacing={3}>
-
-            {heroSelectionArray.map(hero => <HeroCard 
-                                                key={hero.id} 
-                                                hero={hero} 
-                                                heroImage={hero.thumbnail.path + "." + hero.thumbnail.extension}
-                                                heroId={hero.id}
-                                                link={`/recruit/${hero.id}`}
-                                                xsNum={xsNum}
-                                                smNum={smNum}
-                                                seletedMemberCard={seletedMemberCard}
-                                                onDisselectBtnClick={onDisselectBtnClickInSelection}
-                                                />)}
-          </Grid>
+      
+   
+        <div className="flex-container">
+            <div className={classes.root}>
+              <Grid container spacing={3}>
+                {heroSelectionArray.map(hero => <HeroCard 
+                                                    key={hero.id} 
+                                                    hero={hero} 
+                                                    heroImage={hero.thumbnail.path + "." + hero.thumbnail.extension}
+                                                    heroId={hero.id}
+                                                    // link={`/recruit/${hero.id}`}
+                                                    linke={""}
+                                                    hoverEffectDisabledId={"hoverEffectDisabledId"}
+                                                    xsNum={xsNum}
+                                                    smNum={smNum}
+                                                    seletedMemberCard={seletedMemberCard}
+                                                    onDisselectBtnClick={onDisselectBtnClickInSelection}
+                                                    />)}
+              </Grid>
+            </div>    
+            <button className="add-to-team-btn" onClick={()=>{handleAddToTeamBtn()}}>Add To Your Team</button>
         </div>
-        <button onClick={()=>{handleAddToTeamBtn()}}>Add To Your Team</button>
-    </div>
   );
 }
 

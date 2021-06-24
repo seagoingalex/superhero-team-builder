@@ -20,6 +20,9 @@ function TeamMemberList({ heroArray, onDisselectBtnClickInTeamPage }) {
   const smNum = 3;
   const seletedMemberCard = "seletedMemberCard";
 
+   //props that pass that to hide the button
+   const disselectBtnId = "disselectBtnId"
+
   return (
     <div className="flex-container">
         <div className={classes.root}>
@@ -34,6 +37,7 @@ function TeamMemberList({ heroArray, onDisselectBtnClickInTeamPage }) {
                                     seletedMemberCard={seletedMemberCard}
                                     onDisselectBtnClick={onDisselectBtnClickInTeamPage}
                                     link={`team/${hero.id}`}
+                                    disselectBtnId={disselectBtnId}
                                     />)}
           </Grid>
         </div>
