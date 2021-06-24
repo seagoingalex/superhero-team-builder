@@ -172,3 +172,9 @@ button {
 .recruitDetailsContainer {
   background-color: black;
 }
+
+.form-div {
+  display: block;
+  text-align: center;
+  margin-top: 100px;
+}

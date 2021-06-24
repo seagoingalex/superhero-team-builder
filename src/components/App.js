@@ -107,6 +107,7 @@ function App() {
   }, [heroArrayParse])
 
   console.log(heroArrayParse)
+
   // useEffect(() => {
   //   fetch('http://localhost:3000/heroes')
   //   // fetch('https://gateway.marvel.com:443/v1/public/characters?name=Deadpool&apikey=c8d257c5c8de3331d6de741ea71c6a3a')
@@ -132,7 +133,7 @@ function App() {
         <Route path="/team/:id" component={() => <TeamDetails onHeroSelection={onHeroSelection} /> }  />
         <Route exact path="/team" component={() => <Team currentTeam={currentTeam} isLoggedIn={isLoggedIn}
                                                       /> }  />
-        <Route exact path="/addhero" component={() => <NewHeroForm /> }  />
+        <Route exact path="/addhero" component={() => <NewHeroForm currentTeam={currentTeam} isLoggedIn={isLoggedIn}/> }  />
         {/* <Route path="/team/:id" component={() => <RecruitDetails /> }  /> */}
         <Route exact path="/signin" component={() => <SignIn onExistingTeamLogIn={handleLogIn} /> }  />
         <Route exact path="/signup" component={() => <SignUp onNewTeamSubmit={handleLogIn} /> }  />
