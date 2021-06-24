@@ -62,20 +62,6 @@
     },
     {
       "userId": "The Avengers",
-      "heroId": 1009149,
-      "name": "Abyss",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/9/30/535feab462a64.jpg",
-      "id": 10
-    },
-    {
-      "userId": "The Avengers",
-      "heroId": 1011334,
-      "name": "3-D Man",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg",
-      "id": 11
-    },
-    {
-      "userId": null,
       "heroId": 1009146,
       "name": "Abomination (Emil Blonsky)",
       "image": "http://i.annihil.us/u/prod/marvel/i/mg/9/50/4ce18691cbf04.jpg",
@@ -83,36 +69,26 @@
       "id": 13
     },
     {
-      "userId": null,
-      "heroId": 1010699,
-      "name": "Aaron Stack",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg",
-      "description": "",
-      "id": 14
+      "userId": "Guardians of the Galaxy",
+      "heroId": 1009148,
+      "name": "Absorbing Man",
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/1/b0/5269678709fb7.jpg",
+      "id": 7
     },
     {
-      "userId": null,
-      "heroId": 1009144,
-      "name": "A.I.M.",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/6/20/52602f21f29ec.jpg",
-      "description": "AIM is a terrorist organization bent on destroying the world.",
-      "id": 15
+      "userId": "Guardians of the Galaxy",
+      "heroId": 1009146,
+      "name": "Abomination (Emil Blonsky)",
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/9/50/4ce18691cbf04.jpg",
+      "id": 8
     },
     {
-      "userId": null,
-      "heroId": 1016823,
-      "name": "Abomination (Ultimate)",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg",
-      "description": "",
-      "id": 16
-    },
-    {
-      "userId": null,
-      "heroId": 1009149,
-      "name": "Abyss",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/9/30/535feab462a64.jpg",
-      "description": "",
-      "id": 17
+      "name": "Lady Loki",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/A1FytTbVFDL._AC_SX522_.jpg",
+      "description": "The Goddess of Mischief",
+      "userId": "The Avengers",
+      "heroId": "1bd8104-b206-f048-3bcb-fca7ea17632a",
+      "id": 9
     }
   ]
 }

@@ -60,7 +60,7 @@ function SignIn({ onExistingTeamLogIn }) {
     let currentUser = addedTeam.teamName
     if (allUsers.includes(currentUser)) {
       onExistingTeamLogIn(currentUser)
-      history.push("/")
+      history.goBack()
     } else {
       setAnchorEl(e.target);
     }
