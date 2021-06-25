@@ -39,7 +39,6 @@ function RecruitDetails({ onHeroSelection, isLoggedIn }) {
 
     if (!isLoaded) return <h2>Loading...</h2>;
 
-
     const enlistClickHandler = (e, hero) => {
       if(isLoggedIn) {
       //add hero to the heroSelectionArray & make this herocard disappear from RecruitList
@@ -85,6 +84,7 @@ function RecruitDetails({ onHeroSelection, isLoggedIn }) {
         }
         <Comics id={id}/>
       </div>
+
     </div>
     <Popover
         id={modalId}
