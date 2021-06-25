@@ -11,7 +11,7 @@ function Home({ isLoadedHeroes, heroArray, displayArray, heroSelectionArray, onA
     <div className="HomeContainer">
       {
         heroSelectionArray.length === 0 ?
-        <h1 className="home-h2">Please start selecting your heroes to {currentTeam}</h1>
+        <h1 className="home-h2">Please start selecting your heroes </h1>
         :
         
         

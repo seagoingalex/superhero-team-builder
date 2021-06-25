@@ -112,22 +112,6 @@
       "id": 30
     },
     {
-      "userId": "The Avengers",
-      "heroId": 1009152,
-      "name": "Ancient One",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/b/b0/4ce59ea2103ac.jpg",
-      "description": "",
-      "id": 31
-    },
-    {
-      "userId": "The Avengers",
-      "heroId": 1011301,
-      "name": "Anole",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/9/20/4c002e635ddd9.jpg",
-      "description": "",
-      "id": 32
-    },
-    {
       "userId": "The Testing Team",
       "heroId": 1010829,
       "name": "Bengal",
@@ -193,14 +177,6 @@
     },
     {
       "userId": "The Avengers",
-      "heroId": 1009206,
-      "name": "Box",
-      "image": "http://i.annihil.us/u/prod/marvel/i/mg/9/e0/4ce59ef63362d.jpg",
-      "description": "",
-      "id": 45
-    },
-    {
-      "userId": "The Avengers",
       "heroId": 1009214,
       "name": "Cable",
       "image": "http://i.annihil.us/u/prod/marvel/i/mg/3/90/526165df2b584.jpg",
@@ -246,6 +222,38 @@
       "userId": "The Avengers",
       "heroId": "3e03a-8fe-080-28d5-53c551ca5b5",
       "id": 51
+    },
+    {
+      "userId": "The Avengers",
+      "heroId": 1011346,
+      "name": "Ben Reilly",
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/2/20/4ce5a6abaea69.jpg",
+      "description": "Ben Reilly was the most genetically stable of the many clones of Spider-Man created by Professor Miles Warren, the Jackal.",
+      "id": 52
+    },
+    {
+      "userId": "The Avengers",
+      "heroId": 1009178,
+      "name": "Beef",
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c002e0305708.gif",
+      "description": "",
+      "id": 53
+    },
+    {
+      "userId": "The Avengers",
+      "heroId": 1009180,
+      "name": "Beta-Ray Bill",
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/3/90/52602f3e88d25.jpg",
+      "description": "",
+      "id": 54
+    },
+    {
+      "userId": "The Avengers",
+      "heroId": 1010859,
+      "name": "Black Crow",
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg",
+      "description": "",
+      "id": 55
     }
   ]
 }
