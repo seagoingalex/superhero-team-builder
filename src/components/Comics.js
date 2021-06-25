@@ -6,7 +6,7 @@ function Comics  ({ id })  {
 
 
     const [sliceNum, setSliceNum] = useState(0)
-    // const [comicsLeft, setComicsLeft] = useState(comicsArray.length)
+    const [index, setIndex] = useState(0)
 
     useEffect(()=>{
     //the fetch for commic series
@@ -20,15 +20,26 @@ function Comics  ({ id })  {
 
     if (!isLoaded) return <h2>Loading...</h2>;
 
+
+
     const handleNextBtn = () => {
-        setSliceNum(sliceNum+4)
+        setSliceNum(sliceNum+3)
+        setIndex(index +1)
+
     }
 
     const handleBackBtn = () => {
-        setSliceNum(sliceNum-4)
+        setSliceNum(sliceNum-3)
+        setIndex(index -1)
     }
 
-    const comicsOnDisplay = comicsArray.map(comic=>comic.thumbnail.path + "." + comic.thumbnail.extension).slice(sliceNum, sliceNum+4)
+    const comicsOnDisplay = comicsArray.map(comic=>comic.thumbnail.path + "." + comic.thumbnail.extension).slice(sliceNum, sliceNum+3)
+
+    let newArr = [];
+    for (let i =0; i<comicsArray.length; i+=3) {
+            newArr = [...newArr, comicsArray.slice(i,i+3)]
+    }
+
 
     return (
         <div>
@@ -41,13 +52,13 @@ function Comics  ({ id })  {
                         {comicsOnDisplay.map(link => <img className="comics-img" src={link} />)}
                     
                 </div> 
-                { comicsArray.length < 5 ?
+                { newArr.length === 1 ?
                 null :
                 <div>
-                    {comicsArray.length >4 && comicsOnDisplay.length === 4 && comicsArray.length%4 > 0 ? 
+                    {index < newArr.length-1 ? 
                     <button className="next-btn" onClick={()=>{handleNextBtn()}}>Next</button> : null
                     }
-                    {sliceNum > 3 ? 
+                    {index > 0 ? 
                     <button className="back-btn" onClick={()=>{handleBackBtn()}}>Back</button> : null
                     }
                 </div>

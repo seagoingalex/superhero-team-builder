@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function HeroSelection({ heroSelectionArray, onAddToTeamBtnClick, onDisselectBtnClickInSelection }) {
+function HeroSelection({ heroSelectionArray, onAddToTeamBtnClick, onDisselectBtnClickInSelection, currentTeam }) {
   //material ui thing
   const classes = useStyles();
 
@@ -38,6 +38,8 @@ function HeroSelection({ heroSelectionArray, onAddToTeamBtnClick, onDisselectBtn
       
    
         <div className="flex-container">
+          <h1>{currentTeam}</h1>
+          <br></br>
             <div className={classes.root}>
               <Grid container spacing={3}>
                 {heroSelectionArray.map(hero => <HeroCard 
