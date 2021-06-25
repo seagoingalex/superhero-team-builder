@@ -241,3 +241,19 @@ button {
   margin-top: 100px;
 
 }
+
+
+.navButton {
+  padding: 0.75rem;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  color: var(--primary);
+  background-color: var(--background);
+  border: 2px solid var(--dark-turquoise);
+  transition: background-color 0.2s;
+  line-height: 1;
+}
+

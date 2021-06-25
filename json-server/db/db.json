@@ -11,6 +11,22 @@
     {
       "teamName": "Guardians of the Galaxy",
       "id": 3
+    },
+    {
+      "teamName": "The Marauders",
+      "id": 4
+    },
+    {
+      "teamName": "The Fantastic Four",
+      "id": 5
+    },
+    {
+      "teamName": "Big Hero Six",
+      "id": 6
+    },
+    {
+      "teamName": "The Eternals",
+      "id": 7
     }
   ],
   "heroes": [
@@ -89,6 +105,38 @@
       "userId": "The Avengers",
       "heroId": "1bd8104-b206-f048-3bcb-fca7ea17632a",
       "id": 9
+    },
+    {
+      "userId": "The Marauders",
+      "heroId": 1009149,
+      "name": "Abyss",
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/9/30/535feab462a64.jpg",
+      "description": "",
+      "id": 14
+    },
+    {
+      "userId": "The Marauders",
+      "heroId": 1009150,
+      "name": "Agent Zero",
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c0042121d790.jpg",
+      "description": "",
+      "id": 15
+    },
+    {
+      "userId": "The Marauders",
+      "heroId": 1017574,
+      "name": "Angela (Aldrif Odinsdottir)",
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/7/00/545a82f59dd73.jpg",
+      "description": "",
+      "id": 16
+    },
+    {
+      "userId": "Maybe this time",
+      "heroId": 1017100,
+      "name": "A-Bomb (HAS)",
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16.jpg",
+      "description": "Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction! ",
+      "id": 17
     }
   ]
 }

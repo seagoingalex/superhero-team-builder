@@ -16,18 +16,18 @@ function Header({ isLoggedIn, setLogIn, currentTeam }) {
       <div className="header-left">
 
           <NavLink to="/" id="header-logo">
-            <a href="#">SUPERTEAM</a> 
+          SUPERTEAM
           </NavLink>
 
         <div className="navbar-container">
-          <NavLink to="/">
-            <a href="#"  className="navlinks">Home</a> 
+          <NavLink className="button" to="/" exact activeStyle={{color: "red"}}>
+          Home
           </NavLink>
-          <NavLink to="/team" >
-          <a href="#" className="navlinks">{isLoggedIn ? currentTeam : "Your Team"}</a> 
+          <NavLink className="button" to="/team" exact activeStyle={{color: "red"}}>
+          {isLoggedIn ? currentTeam : "Your Team"}
           </NavLink>
-          <NavLink to="/addhero" >
-          <a href="#" className="navlinks">Add a Hero</a> 
+          <NavLink className="button" to="/addhero" exact activeStyle={{color: "red"}}>
+          Create Hero 
           </NavLink>
         </div>
       </div>

@@ -26,8 +26,8 @@ function Team({/*setTeamArray, teamArray, onDisselectBtnClickInTeamPage,*/ curre
 	  .then(res => res.json())
     .then(data => setTeamArray(data.filter(teamMember => teamMember.userId === currentTeam)) )
     .catch(error => console.error('Error:', error))
-  },[teamArray])
-console.log(teamArray)
+  },[])
+
 
   return (
     <div className="teamPage">
