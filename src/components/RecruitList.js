@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function RecruitList({ heroArray, onHeroSelection, heroArrayParse, setHeroArrayParse}) {
+function RecruitList({ isLoadedHeroes, heroArray, onHeroSelection, heroArrayParse, setHeroArrayParse}) {
   const classes = useStyles();
 
   //props to pass down for css purpose
@@ -29,14 +29,14 @@ function RecruitList({ heroArray, onHeroSelection, heroArrayParse, setHeroArrayP
     setHeroArrayParse(heroArrayParse + 100)
   }
 
+  if (!isLoadedHeroes) return <h2>Loading...</h2>
+
   return (
     <div className="flex-container">
       
         <div className={classes.root}>
           {heroArrayParse > 0 ? <button onClick={handleBack}>Back</button> : null}
-          {/* <button onClick={handleBack}>Back</button> */}
           {heroArrayParse < 1400 ? <button onClick={handleNext}>Next</button> : null}
-          {/* <button onClick={handleNext}>Next</button> */}
           <Grid container spacing={3}>
             {heroArray.map(hero => <HeroCard 
                                               key={hero.id} 
