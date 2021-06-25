@@ -3,14 +3,15 @@ import HeroSelection from "./HeroSelection"
 import RecruitList from "./RecruitList"
 
 
-function Home({ heroArray, heroSelectionArray, onAddToTeamBtnClick, onDisselectBtnClickInSelection, heroArrayParse, setHeroArrayParse }) {
+
+function Home({ isLoadedHeroes, heroArray, displayArray, heroSelectionArray, onAddToTeamBtnClick, onDisselectBtnClickInSelection, heroArrayParse, setHeroArrayParse, currentTeam }) {
 
 
   return (
     <div className="HomeContainer">
       {
         heroSelectionArray.length === 0 ?
-        <h2 className="home-h2">Please start selecting your heroes to your team</h2>
+        <h1 className="home-h2">Please start selecting your heroes to {currentTeam}</h1>
         :
         
       
@@ -18,6 +19,7 @@ function Home({ heroArray, heroSelectionArray, onAddToTeamBtnClick, onDisselectB
         <HeroSelection heroSelectionArray={heroSelectionArray}
                        onAddToTeamBtnClick={onAddToTeamBtnClick}
                        onDisselectBtnClickInSelection={onDisselectBtnClickInSelection}
+                       currentTeam={currentTeam}
                       
                         />
 

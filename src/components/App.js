@@ -95,7 +95,7 @@ function App() {
 
   useEffect(() => {
     // fetch('http://localhost:3000/heroes')
-    fetch(`https://gateway.marvel.com:443/v1/public/characters?apikey=${apiKey}&limit=100&offset=${heroArrayParse}`)
+    fetch(`https://gateway.marvel.com:443/v1/public/characters?apikey=${apiKey}&limit=96&offset=${heroArrayParse}`)
     // fetch('https://gateway.marvel.com:443/v1/public/characters?apikey=c8d257c5c8de3331d6de741ea71c6a3a')
     .then(response => response.json())
     .then(heroData => {
@@ -133,6 +133,8 @@ function App() {
                                                      onDisselectBtnClickInSelection={onDisselectBtnClickInSelection}
                                                      heroArrayParse={heroArrayParse}
                                                      setHeroArrayParse={setHeroArrayParse}
+                                                     isLoadedHeroes={isLoadedHeroes}
+                                                     currentTeam={currentTeam}
                                                      /> }  />
         <Route path="/recruit/:id" component={() => <RecruitDetails isLoggedIn={isLoggedIn} onHeroSelection={onHeroSelection} /> }  />
         <Route path="/team/:id" component={() => <TeamDetails onHeroSelection={onHeroSelection} /> }  />

@@ -22,11 +22,11 @@ function RecruitList({ heroArray, onHeroSelection, heroArrayParse, setHeroArrayP
   const disselectBtnId = "disselectBtnId"
 
   const handleBack = () => {
-    setHeroArrayParse(heroArrayParse - 100)
+    setHeroArrayParse(heroArrayParse - 96)
   }
 
   const handleNext = () => {
-    setHeroArrayParse(heroArrayParse + 100)
+    setHeroArrayParse(heroArrayParse + 96)
   }
 
   return (
@@ -50,6 +50,12 @@ function RecruitList({ heroArray, onHeroSelection, heroArrayParse, setHeroArrayP
                                               link={`/recruit/${hero.id}`}
                                               />)}
           </Grid>
+
+          {heroArrayParse > 0 ? <button onClick={handleBack} className="back-btn-in-list">Back</button> : null}
+          {/* <button onClick={handleBack}>Back</button> */}
+          {heroArrayParse < 1400 ? <button onClick={handleNext} className="next-btn-in-list">Next</button> : null}
+          {/* <button onClick={handleNext}>Next</button> */}
+
         </div>
       
     </div>

@@ -20,14 +20,16 @@ function Header({ isLoggedIn, setLogIn }) {
           </NavLink>
 
         <div className="navbar-container">
-          <NavLink to="/">
-            <a href="#"  className="navlinks">Home</a> 
+          <NavLink className="button" to="/" exact activeStyle={{color: "#ffb199"}} style={{ textDecoration: 'none' }}>
+          Home
           </NavLink>
-          <NavLink to="/team" >
-          <a href="#" className="navlinks">Your Team</a> 
+          {isLoggedIn ? 
+          <NavLink className="button" to="/team" exact activeStyle={{color: "#ffb199"}} style={{ textDecoration: 'none' }}>
+           Your Team
           </NavLink>
-          <NavLink to="/addhero" >
-          <a href="#" className="navlinks">Add a Hero</a> 
+           : null }
+          <NavLink className="button" to="/addhero" exact activeStyle={{color: "#ffb199"}} style={{ textDecoration: 'none' }} >
+          Create Hero 
           </NavLink>
         </div>
       </div>

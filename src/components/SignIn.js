@@ -133,7 +133,7 @@ function SignIn({ onExistingTeamLogIn }) {
             color="primary"
             className={classes.submit}
           >
-            Go To My Team
+            GO BUILD MY TEAM
           </Button>
           <Grid container>
             {/* <Grid item xs>
