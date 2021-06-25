@@ -3,7 +3,7 @@ import React from "react";
 // react-router-dom Imports
 import { Link, NavLink } from 'react-router-dom';
 
-function Header({ isLoggedIn, setLogIn }) {
+function Header({ isLoggedIn, setLogIn, currentTeam }) {
 
   const handleLogOut = () => {
     setLogIn(!isLoggedIn)
@@ -24,7 +24,7 @@ function Header({ isLoggedIn, setLogIn }) {
             <a href="#"  className="navlinks">Home</a> 
           </NavLink>
           <NavLink to="/team" >
-          <a href="#" className="navlinks">Your Team</a> 
+          <a href="#" className="navlinks">{isLoggedIn ? currentTeam : "Your Team"}</a> 
           </NavLink>
           <NavLink to="/addhero" >
           <a href="#" className="navlinks">Add a Hero</a> 

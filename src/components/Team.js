@@ -6,8 +6,8 @@ import TeamMemberList from "./TeamMemberList";
 
 function Team({/*setTeamArray, teamArray, onDisselectBtnClickInTeamPage,*/ currentTeam, isLoggedIn }) {
   console.log(currentTeam)
+  
   const [teamArray, setTeamArray] = useState([])
-
 
   const onDisselectBtnClickInTeamPage = (disselectedHero) => {
     console.log(disselectedHero.id)
@@ -24,17 +24,20 @@ function Team({/*setTeamArray, teamArray, onDisselectBtnClickInTeamPage,*/ curre
   useEffect(()=>{
     fetch("http://localhost:3000/teamMember")
 	  .then(res => res.json())
-    .then(data => setTeamArray(data.filter(teamMember=> teamMember.userId === currentTeam)) )
+    .then(data => setTeamArray(data.filter(teamMember => teamMember.userId === currentTeam)) )
     .catch(error => console.error('Error:', error))
-  },[currentTeam])
-
+  },[teamArray])
+console.log(teamArray)
 
   return (
     <div className="teamPage">
         {isLoggedIn ?
+        <>
+        <h1>{currentTeam}</h1>
         <TeamMemberList heroArray={teamArray}
                         onDisselectBtnClickInTeamPage={onDisselectBtnClickInTeamPage}
                         />
+        </>
         :
         <>
         <h1>Log in to your team to see your heroes!</h1>
