@@ -38,8 +38,6 @@ function TeamDetails({ onHeroSelection }) {
         history.push("/team")
     }
 
-console.log(hero)
-
   return (
     <div className="recruitDetailsContainer">
 

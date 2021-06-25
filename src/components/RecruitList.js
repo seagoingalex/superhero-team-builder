@@ -35,8 +35,12 @@ function RecruitList({ isLoadedHeroes, heroArray, onHeroSelection, heroArrayPars
     <div className="flex-container">
       
         <div className={classes.root}>
-          {heroArrayParse > 0 ? <button onClick={handleBack}>Back</button> : null}
-          {heroArrayParse < 1400 ? <button onClick={handleNext}>Next</button> : null}
+
+          {heroArrayParse > 0 ? <button onClick={handleBack} className="back-btn-in-list">Back</button> : null}
+          {/* <button onClick={handleBack}>Back</button> */}
+          {heroArrayParse < 1400 ? <button onClick={handleNext} className="next-btn-in-list">Next</button> : null}
+          {/* <button onClick={handleNext}>Next</button> */}
+
           <Grid container spacing={3}>
             {heroArray.map(hero => <HeroCard 
                                               key={hero.id} 

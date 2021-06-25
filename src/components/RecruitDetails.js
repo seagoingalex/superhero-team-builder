@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams, Link } from 'react-router-dom'
+import Comics from "./Comics"
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
@@ -33,6 +34,7 @@ function RecruitDetails({ onHeroSelection, isLoggedIn, setHeroArray, heroArray }
           setHero(hero.data.results[0]);
           setIsLoaded(true);
         });
+
     }, [id]);
 
     if (!isLoaded) return <h2>Loading...</h2>;
@@ -82,6 +84,7 @@ function RecruitDetails({ onHeroSelection, isLoggedIn, setHeroArray, heroArray }
         :
         <p> {hero.description}</p>
         }
+        <Comics id={id}/>
       </div>
 
     </div>

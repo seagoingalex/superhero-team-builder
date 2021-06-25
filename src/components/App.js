@@ -37,7 +37,7 @@ function App() {
         setHeroSelectionArray([...heroSelectionArray, selectedHero])
       } else { heroSelectionArray.map(hero => {
         // console.log(hero.id, selectedHero.id)
-                if (hero.id ===selectedHero.id) {
+                if (hero.id === selectedHero.id) {
                     flag = false; 
           }
     })
@@ -122,6 +122,7 @@ function App() {
   //   .then(heroData => setHeroArray(heroData))
   // }, [])
 
+
   // // Might need help from Angelo for this one
   // teamArray.map(hero => console.log(hero))
   // console.log(heroArray[1])
@@ -131,7 +132,6 @@ function App() {
   //   let teamArrayHeroes = teamArray.map(hero => hero)
   //   return hero.id !== teamArrayHeroes.heroId
   // })
-  
 
   return (
     <div >
