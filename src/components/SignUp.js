@@ -153,7 +153,7 @@ function SignUp({ onNewTeamSubmit }) {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="/signin" variant="body2">
+              <Link to="/signin" variant="body2">
                 Already have a team? Sign in
               </Link>
             </Grid>

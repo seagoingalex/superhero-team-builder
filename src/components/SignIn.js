@@ -60,7 +60,7 @@ function SignIn({ onExistingTeamLogIn }) {
     let currentUser = addedTeam.teamName
     if (allUsers.includes(currentUser)) {
       onExistingTeamLogIn(currentUser)
-      history.push("/")
+      history.goBack()
     } else {
       setAnchorEl(e.target);
     }
@@ -88,7 +88,7 @@ function SignIn({ onExistingTeamLogIn }) {
 
   return (
     <>
-    <Container component="main" maxWidth="xs" className="signInPage">
+    <Container component="main" maxWidth="xs" className="signInPage" >
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -142,7 +142,7 @@ function SignIn({ onExistingTeamLogIn }) {
               </Link>
             </Grid> */}
             <Grid item>
-              <Link href="/signup" variant="body2">
+              <Link to="/signup" variant="body2">
                 {"Don't have a team? Create one!"}
               </Link>
             </Grid>

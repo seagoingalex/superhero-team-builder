@@ -6,6 +6,7 @@ function Comics  ({ id })  {
 
 
     const [sliceNum, setSliceNum] = useState(0)
+    // const [comicsLeft, setComicsLeft] = useState(comicsArray.length)
 
     useEffect(()=>{
     //the fetch for commic series
@@ -19,8 +20,6 @@ function Comics  ({ id })  {
 
     if (!isLoaded) return <h2>Loading...</h2>;
 
-    const comicsOnDisplay = comicsArray.map(comic=>comic.thumbnail.path + "." + comic.thumbnail.extension)
-
     const handleNextBtn = () => {
         setSliceNum(sliceNum+4)
     }
@@ -29,16 +28,32 @@ function Comics  ({ id })  {
         setSliceNum(sliceNum-4)
     }
 
+    const comicsOnDisplay = comicsArray.map(comic=>comic.thumbnail.path + "." + comic.thumbnail.extension).slice(sliceNum, sliceNum+4)
+
     return (
         <div>
-            <h2 className="comics-h2">The Comic Series thie superhero is in:</h2>
-            <div className="comics-container"> 
-                
-                {comicsOnDisplay.slice(sliceNum, sliceNum+4).map(link => <img className="comics-img" src={link} />)}
-            
-            </div>  
-            <button className="back-btn" onClick={()=>{handleBackBtn()}}>Back</button>
-            <button className="next-btn" onClick={()=>{handleNextBtn()}}>Next</button>
+            { comicsOnDisplay.length === 0 ? 
+            null :
+            <div>
+                <h2 className="comics-h2">The Comic Series this superhero is in:</h2>
+                <div className="comics-container"> 
+                        
+                        {comicsOnDisplay.map(link => <img className="comics-img" src={link} />)}
+                    
+                </div> 
+                { comicsArray.length < 5 ?
+                null :
+                <div>
+                    {comicsArray.length >4 && comicsOnDisplay.length === 4 && comicsArray.length%4 > 0 ? 
+                    <button className="next-btn" onClick={()=>{handleNextBtn()}}>Next</button> : null
+                    }
+                    {sliceNum > 3 ? 
+                    <button className="back-btn" onClick={()=>{handleBackBtn()}}>Back</button> : null
+                    }
+                </div>
+                }
+            </div>
+        }
         </div>
     );
 }

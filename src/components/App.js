@@ -16,8 +16,11 @@ the former allow us the assignment itself. */
 // Tip: don't forget to run npm install react-router dom !
 import { Route, Switch } from 'react-router-dom'
 
+const apiKey = "c8d257c5c8de3331d6de741ea71c6a3a"
+
 function App() {
   const [heroArray, setHeroArray] = useState([])
+  const [heroArrayParse, setHeroArrayParse ] = useState(0)
   const [heroSelectionArray, setHeroSelectionArray] = useState([])
   // const [teamArray, setTeamArray] = useState([])
   const [isLoggedIn, setLogIn] = useState(false)
@@ -31,7 +34,7 @@ function App() {
         setHeroSelectionArray([...heroSelectionArray, selectedHero])
       } else { heroSelectionArray.map(hero => {
         // console.log(hero.id, selectedHero.id)
-                if (hero.id ===selectedHero.id) {
+                if (hero.id === selectedHero.id) {
                     flag = false; 
           }
     })
@@ -92,7 +95,8 @@ function App() {
 
   useEffect(() => {
     // fetch('http://localhost:3000/heroes')
-    fetch('https://gateway.marvel.com:443/v1/public/characters?apikey=c8d257c5c8de3331d6de741ea71c6a3a')
+    fetch(`https://gateway.marvel.com:443/v1/public/characters?apikey=${apiKey}&limit=100&offset=${heroArrayParse}`)
+    // fetch('https://gateway.marvel.com:443/v1/public/characters?apikey=c8d257c5c8de3331d6de741ea71c6a3a')
     .then(response => response.json())
     .then(heroData => {
       let heroes = heroData.data.results.map(hero => hero)
@@ -101,9 +105,10 @@ function App() {
     // .then(heroData => setHeroArray(heroData.data.map(results => results.hero)))
     // .then(heroData => heroData.data.results.map(hero => console.log(hero)))
     // .then(heroData => setHeroArray(heroData))
-  }, [])
+  }, [heroArrayParse])
 
-  console.log(heroArray)
+  console.log(heroArrayParse)
+
   // useEffect(() => {
   //   fetch('http://localhost:3000/heroes')
   //   // fetch('https://gateway.marvel.com:443/v1/public/characters?name=Deadpool&apikey=c8d257c5c8de3331d6de741ea71c6a3a')
@@ -112,7 +117,11 @@ function App() {
   //   .then(heroData => setHeroArray(heroData))
   // }, [])
 
-  // console.log(heroArray)
+  console.log(heroArray)
+
+
+
+
   return (
     <div >
       <Header isLoggedIn={isLoggedIn} setLogIn={setLogIn} />
@@ -122,13 +131,15 @@ function App() {
                                                      heroSelectionArray={heroSelectionArray} 
                                                      onAddToTeamBtnClick={onAddToTeamBtnClick}
                                                      onDisselectBtnClickInSelection={onDisselectBtnClickInSelection}
-
+                                                     heroArrayParse={heroArrayParse}
+                                                     setHeroArrayParse={setHeroArrayParse}
                                                      /> }  />
-        <Route path="/recruit/:id" component={() => <RecruitDetails onHeroSelection={onHeroSelection} /> }  />
+        <Route path="/recruit/:id" component={() => <RecruitDetails isLoggedIn={isLoggedIn} onHeroSelection={onHeroSelection} /> }  />
         <Route path="/team/:id" component={() => <TeamDetails onHeroSelection={onHeroSelection} /> }  />
-        <Route exact path="/team" component={() => <Team currentTeam={currentTeam}
+        <Route exact path="/team" component={() => <Team currentTeam={currentTeam} isLoggedIn={isLoggedIn}
+                                                         
                                                       /> }  />
-        <Route exact path="/addhero" component={() => <NewHeroForm /> }  />
+        <Route exact path="/addhero" component={() => <NewHeroForm currentTeam={currentTeam} isLoggedIn={isLoggedIn}/> }  />
         {/* <Route path="/team/:id" component={() => <RecruitDetails /> }  /> */}
         <Route exact path="/signin" component={() => <SignIn onExistingTeamLogIn={handleLogIn} /> }  />
         <Route exact path="/signup" component={() => <SignUp onNewTeamSubmit={handleLogIn} /> }  />
