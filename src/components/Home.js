@@ -3,7 +3,8 @@ import HeroSelection from "./HeroSelection"
 import RecruitList from "./RecruitList"
 
 
-function Home({ heroArray, heroSelectionArray, onAddToTeamBtnClick, onDisselectBtnClickInSelection, heroArrayParse, setHeroArrayParse }) {
+
+function Home({ isLoadedHeroes, heroArray, displayArray, heroSelectionArray, onAddToTeamBtnClick, onDisselectBtnClickInSelection, heroArrayParse, setHeroArrayParse }) {
 
 
   return (
@@ -13,7 +14,7 @@ function Home({ heroArray, heroSelectionArray, onAddToTeamBtnClick, onDisselectB
         <h2 className="home-h2">Please start selecting your heroes to your team</h2>
         :
         
-      
+        
 
         <HeroSelection heroSelectionArray={heroSelectionArray}
                        onAddToTeamBtnClick={onAddToTeamBtnClick}
@@ -22,8 +23,8 @@ function Home({ heroArray, heroSelectionArray, onAddToTeamBtnClick, onDisselectB
                         />
 
       }
-
-        <RecruitList heroArray={heroArray} heroArrayParse={heroArrayParse} setHeroArrayParse={setHeroArrayParse}/>
+        
+        <RecruitList isLoadedHeroes={isLoadedHeroes} heroArray={heroArray} heroArrayParse={heroArrayParse} setHeroArrayParse={setHeroArrayParse}/>
 
     </div>
   );
