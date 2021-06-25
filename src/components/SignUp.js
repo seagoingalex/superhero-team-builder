@@ -72,7 +72,7 @@ function SignUp({ onNewTeamSubmit }) {
       teamName: newTeam
     }
     const userMap = allUsers.map(team => team.teamName)
-    if (userMap.includes(addedTeam.teamName)) {
+    if (userMap.includes(newTeam)) {
       setAnchorEl(e.target);
     } else {
       fetch('http://localhost:3000/users', {
@@ -83,8 +83,8 @@ function SignUp({ onNewTeamSubmit }) {
       },
       body: JSON.stringify(addedTeam)
     })
-    onNewTeamSubmit(addedTeam)
-    history.push("/")
+    onNewTeamSubmit(newTeam)
+    history.push("/team")
     }
   }
 

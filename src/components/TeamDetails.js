@@ -28,6 +28,9 @@ function TeamDetails({ onHeroSelection }) {
         //delete request 
         fetch(`http://localhost:3000/teamMember/${id}`, {
             method: 'DELETE',
+            headers: {
+              "Content-Type":"application/json"
+            }
             })
         .catch(error => console.error('Error:', error))
           
@@ -45,7 +48,7 @@ console.log(hero)
 
         <div className="btngroup">
           <button className="detail-btn" onClick={handleBack}> Go Back</button>
-          <button className="detail-btn" onClick={()=>{deselectClickHandler()}}>Remove from team </button>
+          <button className="detail-btn" onClick={() =>{deselectClickHandler()}}>Remove from team </button>
         </div>
 
       </div>
