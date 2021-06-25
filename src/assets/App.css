@@ -171,6 +171,10 @@ button {
   color: black
 }
 
+.blue-font {
+  color: blue
+}
+
 .recruitDetailsContainer {
   background-color: black;
 }
@@ -289,8 +293,6 @@ button {
 
 .sign-in-page {
   background-color: black;
-}
-
 }
 
 

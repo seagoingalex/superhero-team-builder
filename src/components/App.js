@@ -14,7 +14,7 @@ import TeamDetails from "./TeamDetails"
 model parent/child branch behavior as a sitemap, while
 the former allow us the assignment itself. */
 // Tip: don't forget to run npm install react-router dom !
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, useHistory } from 'react-router-dom'
 
 const apiKey = "c8d257c5c8de3331d6de741ea71c6a3a"
 
@@ -30,6 +30,8 @@ function App() {
   
   // const [teamMemberArrayfromDB, setTeamMemberArrayfromDB] = ([])
   
+  const history = useHistory();
+
   //callback function pass down to RecruitDetail page for the Enlist Btn
   let flag = true;
   const onHeroSelection = (selectedHero) => {
@@ -43,8 +45,8 @@ function App() {
     })
     if (flag){
       setHeroSelectionArray([...heroSelectionArray, selectedHero])
+      
     }
-  
   }
     //add hero to the heroSelectionArray 
     // if (selectedHero.id)
@@ -73,6 +75,7 @@ function App() {
           description:hero.description
           })
       })
+      // .then(history.push("/team"))
       .catch(error => console.error('Error:', error))
     })    
 

@@ -32,10 +32,11 @@ function TeamDetails({ onHeroSelection }) {
               "Content-Type":"application/json"
             }
             })
+        // .then(history.goBack())
         .catch(error => console.error('Error:', error))
           
         //push to Team page
-        history.push("/team")
+        history.goBack();
     }
 
   return (
