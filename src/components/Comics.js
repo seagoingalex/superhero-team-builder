@@ -42,7 +42,7 @@ function Comics  ({ id })  {
 
 
     return (
-        <div>
+        <div className="comic-page">
             { comicsOnDisplay.length === 0 ? 
             null :
             <div>
