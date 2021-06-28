@@ -56,7 +56,8 @@
 }
 
 .button {
-  font-size: 18px;
+  font-size: 15px;
+
 }
 
 .navlinks {
@@ -207,7 +208,7 @@ button {
 
 .detail-img {
   width: 400px;
-  height: 60vh;
+  height: 90vh;
   object-fit: cover;
   margin-bottom: 25px;
 }
@@ -315,4 +316,6 @@ button {
   line-height: 1;
 }
 
-
+.comic-page {
+  width: 720px;
+}
