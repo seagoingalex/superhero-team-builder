@@ -73,6 +73,7 @@ function SignIn({ onExistingTeamLogIn }) {
     }
     fetch('http://localhost:3000/users')
     .then(response => response.json())
+    // .then(users => console.log(users))  
     .then(users => verifyTeam(e, users, addedTeam))  
     // onNewTeamSubmit(addedTeam)
     // history.push("/team")
