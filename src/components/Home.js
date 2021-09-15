@@ -14,7 +14,7 @@ function Home({ isLoadedHeroes, heroArray, displayArray, heroSelectionArray, onA
         <h1 className="home-h2">Please start selecting your heroes to {currentTeam}</h1>
         :
         
-      
+        
 
         <HeroSelection heroSelectionArray={heroSelectionArray}
                        onAddToTeamBtnClick={onAddToTeamBtnClick}
@@ -24,8 +24,8 @@ function Home({ isLoadedHeroes, heroArray, displayArray, heroSelectionArray, onA
                         />
 
       }
-
-        <RecruitList heroArray={heroArray} heroArrayParse={heroArrayParse} setHeroArrayParse={setHeroArrayParse}/>
+        
+        <RecruitList isLoadedHeroes={isLoadedHeroes} heroArray={heroArray} heroArrayParse={heroArrayParse} setHeroArrayParse={setHeroArrayParse}/>
 
     </div>
   );

@@ -176,6 +176,10 @@ button {
   color: black
 }
 
+.blue-font {
+  color: blue
+}
+
 .recruitDetailsContainer {
   background-color: black;
 }
@@ -203,7 +207,7 @@ button {
 
 .detail-img {
   width: 400px;
-  height: 60vh;
+  height: 90vh;
   object-fit: cover;
   margin-bottom: 25px;
 }
@@ -281,6 +285,7 @@ button {
   margin-top: 100px;
 }
 
+
 .back-btn-in-list {
   float: left;
   width: 100px;
@@ -293,4 +298,23 @@ button {
 
 .sign-in-page {
   background-color: black;
+}
+
+
+.navButton {
+  padding: 0.75rem;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  color: var(--primary);
+  background-color: var(--background);
+  border: 2px solid var(--dark-turquoise);
+  transition: background-color 0.2s;
+  line-height: 1;
+}
+
+.comic-page {
+  width: 720px;
 }

@@ -28,11 +28,15 @@ function TeamDetails({ onHeroSelection }) {
         //delete request 
         fetch(`http://localhost:3000/teamMember/${id}`, {
             method: 'DELETE',
+            headers: {
+              "Content-Type":"application/json"
+            }
             })
+        // .then(history.goBack())
         .catch(error => console.error('Error:', error))
           
         //push to Team page
-        history.push("/team")
+        history.goBack();
     }
 
   return (
@@ -43,7 +47,7 @@ function TeamDetails({ onHeroSelection }) {
 
         <div className="btngroup">
           <button className="detail-btn" onClick={handleBack}> Go Back</button>
-          <button className="detail-btn" onClick={()=>{deselectClickHandler()}}>Remove from team </button>
+          <button className="detail-btn" onClick={() =>{deselectClickHandler()}}>Remove from team </button>
         </div>
 
       </div>

@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function RecruitDetails({ onHeroSelection, isLoggedIn }) {
+function RecruitDetails({ onHeroSelection, isLoggedIn, setHeroArray, heroArray }) {
     const [hero, setHero] = useState(null)
     const [isLoaded, setIsLoaded] = useState(false)
     const classes = useStyles();
@@ -44,6 +44,8 @@ function RecruitDetails({ onHeroSelection, isLoggedIn }) {
       //add hero to the heroSelectionArray & make this herocard disappear from RecruitList
       //callback fn defined on App.js
       onHeroSelection(hero)
+      console.log(hero)
+      setHeroArray(heroArray.filter(individual => individual.id !== hero.id))
       //push the page back to the home page 
       history.push('/')  
       } else {

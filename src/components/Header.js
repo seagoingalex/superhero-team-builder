@@ -3,7 +3,7 @@ import React from "react";
 // react-router-dom Imports
 import { Link, NavLink } from 'react-router-dom';
 
-function Header({ isLoggedIn, setLogIn }) {
+function Header({ isLoggedIn, setLogIn, currentTeam }) {
 
   const handleLogOut = () => {
     setLogIn(!isLoggedIn)
@@ -16,7 +16,7 @@ function Header({ isLoggedIn, setLogIn }) {
       <div className="header-left">
 
           <NavLink to="/" id="header-logo">
-            <a href="#">SUPERTEAM</a> 
+          SUPERTEAM
           </NavLink>
 
         <div className="navbar-container">

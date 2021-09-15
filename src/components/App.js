@@ -14,7 +14,7 @@ import TeamDetails from "./TeamDetails"
 model parent/child branch behavior as a sitemap, while
 the former allow us the assignment itself. */
 // Tip: don't forget to run npm install react-router dom !
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, useHistory } from 'react-router-dom'
 
 const apiKey = "c8d257c5c8de3331d6de741ea71c6a3a"
 
@@ -22,11 +22,16 @@ function App() {
   const [heroArray, setHeroArray] = useState([])
   const [heroArrayParse, setHeroArrayParse ] = useState(0)
   const [heroSelectionArray, setHeroSelectionArray] = useState([])
-  // const [teamArray, setTeamArray] = useState([])
   const [isLoggedIn, setLogIn] = useState(false)
   const [currentTeam, setCurrentTeam] = useState(null)
+  const [isLoadedHeroes, setIsLoadedHeroes] = useState(false)
+  // const [teamArray, setTeamArray] = useState([])
+  // const [displayArray, setDisplayArray] = useState([])
+  
   // const [teamMemberArrayfromDB, setTeamMemberArrayfromDB] = ([])
   
+  const history = useHistory();
+
   //callback function pass down to RecruitDetail page for the Enlist Btn
   let flag = true;
   const onHeroSelection = (selectedHero) => {
@@ -40,8 +45,8 @@ function App() {
     })
     if (flag){
       setHeroSelectionArray([...heroSelectionArray, selectedHero])
+      
     }
-  
   }
     //add hero to the heroSelectionArray 
     // if (selectedHero.id)
@@ -53,6 +58,7 @@ function App() {
 
   //callback fn pass down to HeroSelection.js for AddToTeamBtn
   const onAddToTeamBtnClick = (heroSelectionArray) => {
+    // setTeamArray([...teamArray, heroSelectionArray])
     console.log(heroSelectionArray)
     
     heroSelectionArray.map(hero => {
@@ -69,6 +75,7 @@ function App() {
           description:hero.description
           })
       })
+      // .then(history.push("/team"))
       .catch(error => console.error('Error:', error))
     })    
 
@@ -101,14 +108,15 @@ function App() {
     .then(heroData => {
       let heroes = heroData.data.results.map(hero => hero)
       setHeroArray(heroes)
+      setIsLoadedHeroes(true)
     })
     // .then(heroData => setHeroArray(heroData.data.map(results => results.hero)))
     // .then(heroData => heroData.data.results.map(hero => console.log(hero)))
     // .then(heroData => setHeroArray(heroData))
   }, [heroArrayParse])
 
-  console.log(heroArrayParse)
-
+  if (!isLoadedHeroes) return <h2>Loading...</h2>
+  
   // useEffect(() => {
   //   fetch('http://localhost:3000/heroes')
   //   // fetch('https://gateway.marvel.com:443/v1/public/characters?name=Deadpool&apikey=c8d257c5c8de3331d6de741ea71c6a3a')
@@ -117,17 +125,24 @@ function App() {
   //   .then(heroData => setHeroArray(heroData))
   // }, [])
 
-  console.log(heroArray)
 
-
-
+  // // Might need help from Angelo for this one
+  // teamArray.map(hero => console.log(hero))
+  // console.log(heroArray[1])
+  // // console.log(heroArray)
+  // // setHeroArray(heroArray.filter(individual => individual.id !== hero.id))
+  // const displayArray = heroArray.filter((hero) => {
+  //   let teamArrayHeroes = teamArray.map(hero => hero)
+  //   return hero.id !== teamArrayHeroes.heroId
+  // })
 
   return (
     <div >
-      <Header isLoggedIn={isLoggedIn} setLogIn={setLogIn} />
+      <Header isLoggedIn={isLoggedIn} setLogIn={setLogIn} currentTeam={currentTeam} />
       <Switch>
 
         <Route exact path="/" component={() => <Home heroArray={heroArray} 
+                                                    //  displayArray={displayArray}
                                                      heroSelectionArray={heroSelectionArray} 
                                                      onAddToTeamBtnClick={onAddToTeamBtnClick}
                                                      onDisselectBtnClickInSelection={onDisselectBtnClickInSelection}
@@ -136,9 +151,9 @@ function App() {
                                                      isLoadedHeroes={isLoadedHeroes}
                                                      currentTeam={currentTeam}
                                                      /> }  />
-        <Route path="/recruit/:id" component={() => <RecruitDetails isLoggedIn={isLoggedIn} onHeroSelection={onHeroSelection} /> }  />
+        <Route path="/recruit/:id" component={() => <RecruitDetails isLoggedIn={isLoggedIn} onHeroSelection={onHeroSelection} setHeroArray={setHeroArray} heroArray={heroArray}/> }  />
         <Route path="/team/:id" component={() => <TeamDetails onHeroSelection={onHeroSelection} /> }  />
-        <Route exact path="/team" component={() => <Team currentTeam={currentTeam} isLoggedIn={isLoggedIn}
+        <Route exact path="/team" component={() => <Team currentTeam={currentTeam} isLoggedIn={isLoggedIn} /*teamArray={teamArray} setTeamArray={setTeamArray}*/
                                                       /> }  />
         <Route exact path="/addhero" component={() => <NewHeroForm currentTeam={currentTeam} isLoggedIn={isLoggedIn}/> }  />
         {/* <Route path="/team/:id" component={() => <RecruitDetails /> }  /> */}

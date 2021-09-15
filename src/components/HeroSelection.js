@@ -26,10 +26,11 @@ function HeroSelection({ heroSelectionArray, onAddToTeamBtnClick, onDisselectBtn
 
   //Add To Team Btn handler
   const handleAddToTeamBtn = () => {
-    //push to team page
-    history.push("/team")
+    
     //pass heroSelectionArray up the App.js for 1.POST to the database 2.filter out the heroArray when load 
     onAddToTeamBtnClick(heroSelectionArray)
+    //push to team page
+    history.push("/team")
   }
 
 
