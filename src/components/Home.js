@@ -4,7 +4,7 @@ import RecruitList from "./RecruitList"
 
 
 
-function Home({ isLoadedHeroes, heroArray, displayArray, heroSelectionArray, onAddToTeamBtnClick, onDisselectBtnClickInSelection, heroArrayParse, setHeroArrayParse, currentTeam }) {
+function Home({ isLoadedHeroes, heroArray, heroSelectionArray, onAddToTeamBtnClick, onDisselectBtnClickInSelection, heroArrayParse, setHeroArrayParse, currentTeam }) {
 
 
   return (

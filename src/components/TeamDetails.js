@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams, Link } from 'react-router-dom'
 
-function TeamDetails({ onHeroSelection }) {
+function TeamDetails() {
     const [hero, setHero] = useState(null)
     const [isLoaded, setIsLoaded] = useState(false)
 
@@ -32,7 +32,6 @@ function TeamDetails({ onHeroSelection }) {
               "Content-Type":"application/json"
             }
             })
-        // .then(history.goBack())
         .catch(error => console.error('Error:', error))
           
         //push to Team page

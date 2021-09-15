@@ -47,7 +47,6 @@ function HeroSelection({ heroSelectionArray, onAddToTeamBtnClick, onDisselectBtn
                                                     hero={hero} 
                                                     heroImage={hero.thumbnail.path + "." + hero.thumbnail.extension}
                                                     heroId={hero.id}
-                                                    // link={`/recruit/${hero.id}`}
                                                     linke={""}
                                                     hoverEffectDisabledId={"hoverEffectDisabledId"}
                                                     xsNum={xsNum}

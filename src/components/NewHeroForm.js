@@ -56,7 +56,6 @@ function NewHeroForm({ currentTeam, isLoggedIn }) {
             userId: currentTeam,
             heroId: uuid()
         }
-        // onHeroFormSubmit(newHero)
         fetch("http://localhost:3000/teamMember", {
             method: 'POST',
             headers: {

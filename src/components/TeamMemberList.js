@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function TeamMemberList({ heroArray, onDisselectBtnClickInTeamPage }) {
-  //material ui thing
+  //material ui 
   const classes = useStyles();
 
   //props to pass down for css purpose

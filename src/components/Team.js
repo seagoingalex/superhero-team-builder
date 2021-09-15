@@ -4,7 +4,7 @@ import TeamMemberList from "./TeamMemberList";
 
 
 
-function Team({/*setTeamArray, teamArray, onDisselectBtnClickInTeamPage,*/ currentTeam, isLoggedIn}) {
+function Team({currentTeam, isLoggedIn}) {
   console.log(currentTeam)
   
   const [teamArray, setTeamArray] = useState([])

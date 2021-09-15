@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams, Link } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import Comics from "./Comics"
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   typography: {
@@ -44,7 +43,6 @@ function RecruitDetails({ onHeroSelection, isLoggedIn, setHeroArray, heroArray }
       //add hero to the heroSelectionArray & make this herocard disappear from RecruitList
       //callback fn defined on App.js
       onHeroSelection(hero)
-      console.log(hero)
       setHeroArray(heroArray.filter(individual => individual.id !== hero.id))
       //push the page back to the home page 
       history.push('/')  
