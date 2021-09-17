@@ -37,9 +37,14 @@ function Header({ isLoggedIn, setLogIn, currentTeam }) {
       <div className="header-right">
         {isLoggedIn ? <button onClick={handleLogOut}>Sign Out</button> 
         :
+        <>
         <Link to="/signin" className="navbar-btn">
         <button>Sign in</button>
         </Link>
+        <Link to="/signup" className="navbar-btn">
+        <button>Sign up</button>
+        </Link>
+        </>
         }
       </div>
 
